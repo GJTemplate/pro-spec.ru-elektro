@@ -2,6 +2,7 @@
 	<update>
 		<name>Template Site Elektro By Gartes</name>
 		<description><![CDATA[Template Site Elektro By Gartes]]></description>
+		<element>elektro</element>
 		<type>template</type>
 		<version>1.1.2</version>
 		<client>0</client>
