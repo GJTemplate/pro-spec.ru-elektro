@@ -10,19 +10,25 @@
 	<version>1.1.2</version>
 	<description>TPL_elektro_XML_DESCRIPTION</description>
 	<files>
-		<folder>html</folder>
+		<folder>balls</folder>
 		<folder>css</folder>
+		<folder>html</folder>
 		<folder>images</folder>
-		<folder>language</folder>
+		<folder>img</folder>
 		<folder>js</folder>
-		<filename>index.php</filename>
-		<filename>index.html</filename>
-		<filename>favicon.ico</filename>
-		<filename>templateDetails.xml</filename>
-		<filename>template_preview.png</filename>
-		<filename>template_thumbnail.png</filename>
+		<folder>language</folder>
+
 		<filename>component.php</filename>
 		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>README.md</filename>
+		<filename>style.css</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>template_update.xml</filename>
+		<filename>templateDetails.xml</filename>
 	</files>
 
 	<updateservers>
