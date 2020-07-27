@@ -1,0 +1,128 @@
+
+#top_menu .od.menu li {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#top_menu .od.menu li ul li {
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#top_menu .od.menu li:hover > ul {
+    display: block;
+}
+#top_menu .od.menu li ul {
+    background: #113b5c none repeat scroll 0 0;
+    display: none;
+    list-style-type: none;
+    min-width: 300px;
+    padding: 0;
+    position: absolute;
+    top: 43px;
+    z-index: 10000;
+}
+#top_menu .od.menu li a {
+    border-right: 1px solid #dadada;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+#top_menu .od.menu li ul li a {
+    border-right: medium none;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    padding: 0 15px;
+    text-transform: none;
+    width: auto;
+}
+#top_menu .od.menu li a.selected {
+    color: #555;
+    cursor: default;
+}
+#top_menu .od.menu li a, #top_menu .od.menu li a:focus, #top_menu .od.menu li a:hover {
+    text-decoration: none;
+}
+#top_menu .od.menu li a:hover {
+    color: red;
+    text-decoration: underline;
+}
+#top_menu .od.menu li a:focus, #top_menu .od.menu li a:hover, #top_menu .od.menu li a:active {
+    color: #fff;
+    outline: medium none;
+    text-decoration: none;
+}
+#top_menu .od.menu li.label {
+    font-weight: normal;
+    line-height: 1.5;
+    margin-right: 1em;
+    padding: 0.15em 0.33em;
+}
+.item119 a {
+    border-right: 0 none !important;
+}
+.elektro-header-menu li {
+    float: left;
+    font-size: 14px;
+    line-height: 27px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 15px;
+    position: relative;
+}
+.elektro-header-menu li a {
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+.elektro-header-menu li ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.elektro-header-menu li a:hover, .elektro-header-menu li a:active {
+    text-decoration:underline;
+}
+.elektro-header-menu .joomla-nav li ul {
+    background: rgb(51, 51, 51) none repeat scroll 0 0;
+    display: none;
+    left: 0;
+    min-width: 150px;
+    padding: 0;
+    position: absolute;
+    top: 26px;
+    width: auto;
+    z-index: 10000;
+}
+.elektro-header-menu .joomla-nav li:hover > ul {
+    display: block;
+}
+.elektro-header-menu li ul li {
+    border-bottom: 1px solid #fff;
+    display: block;
+    padding: 0;
+    width: 100%;
+}
+#current, .selected {
+}
+/*.elektro-top-left .joomla-nav a {
+    border-bottom: 1px dashed #dadada;
+    color: #333;
+    display: block;
+    font-size: 14px;
+    line-height: 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.elektro-top-left .joomla-nav a:hover {
+    color: #113b5c;
+    text-decoration: underline;
+}*/
