@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
-<extension
-	version="2.5"
-	type="template"
-	client="site">
+<extension type="template" method="upgrade" version="3.0" client="site">
 	<name>elektro</name>
-	<creationDate>10/10/09</creationDate>
+	<creationDate>27.07.2020</creationDate>
 	<author>Viktor Dunda</author>
 	<authorEmail>viktor@mystery27.pp.ua</authorEmail>
 	<authorUrl>http://mystery27.pp.ua</authorUrl>
