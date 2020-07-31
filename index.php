@@ -7,6 +7,22 @@
 
 defined('_JEXEC') or die;
 
+
+
+
+    //		define('TEMPLATE_VERSION', 'dev');
+    if (!defined('TEMPLATE_VERSION')){
+        $xml_file = JPATH_THEMES . '/elektro/templateDetails.xml';
+        $dom = new DOMDocument("1.0", "utf-8");
+        $dom->load($xml_file);
+        $version = $dom->getElementsByTagName('version')->item(0)->textContent;
+		define('TEMPLATE_VERSION', $version );
+	}
+
+
+
+
+
 /* The following line loads the MooTools JavaScript Library */
 JHtml::_('behavior.framework', true);
 
@@ -41,8 +57,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/joomla-nav/screen.css" type="text/css" media="screen" />
 
+        <?php
+
+
+
+
+ ?>
+
 		<!-- The following line loads the template CSS file located in the template folder. -->
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css?v_<?= TEMPLATE_VERSION ?>" type="text/css" />
 
 		<!-- The following four lines load the Blueprint CSS Framework and the template CSS file for right-to-left languages. If you don't want to use these, delete these lines. -->
 		<?php if($this->direction == 'rtl') : ?>
