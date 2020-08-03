@@ -57,6 +57,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/plugins/joomla-nav/screen.css" type="text/css" media="screen" />
 
+
+
         <?php
 
 
@@ -93,6 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 var __cs = __cs || [];
 __cs.push(["setCsAccount", "vkDFcfw7_uRq5WubZ2cUvY6S7g54gpgM"]);
 </script>
+
+
+<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/assets/css/header.critical.css" type="text/css" />
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -356,19 +361,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</div>
 			<?php endif; ?>
 			<div class="joomla-header span-16 append-1">
-				<div id="elektro_logo">
-				<a href="" style="text-decoration:none;"><jdoc:include type="modules" name="logo" style="none" /></a>
-				</div>
+                <?= JLayoutHelper::render('heder.logo', [] ); ?>
+
 				<div class="header__menuLink__icon "> </div>
 				<div class="overlayHeader"><span class="overlayClose"></span></div>
 				<div style="display:none" >
 					<jdoc:include type="modules" name="elektro-header-menu" style="none" />
 					<div style="clear: both;"></div>
 				</div>
+				<jdoc:include type="modules" name="logo-2" style="none"/>
+
+
+
+
+
 				<div class="geolocation" style="float: left; padding: 3px 0px 0px;">
-				<jdoc:include type="modules" name="region-select" style="none" />
-			<jdoc:include type="modules" name="logo-2" style="none"/>
-				</div>
+				    <jdoc:include type="modules" name="region-select" style="none" />
+                </div>
+
+
+
 								<div id="back-top">
 
                                     <div id="top_menu">
@@ -385,38 +397,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div id="search"><jdoc:include type="modules" name="elektro-search" style="none" /></div>
 							    <div id="elektro_phone">
 			<?php
-		    if($_COOKIE['city_name']=='Москва')
-			{echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+74952155475">+7 (495) 215-54-75</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		    }else
-			   {if($_COOKIE['city_name']=='Санкт-Петербург')
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78124243282">+7 (812) 424-32-82</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		       }else
-			   {if($_COOKIE['city_name']=='Нижний Новгород')
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78312613384">+7 (831) 261-33-84</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		       }else
-			   {if($_COOKIE['city_name']=='Казань')
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78432024031">+7 (843) 202-40-31</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		       }else
-			   {if($_COOKIE['city_name']=='Новосибирск')
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+73832078348">+7 (383) 207-83-48</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		       }else
-			   {if($_COOKIE['city_name']=='Самара')
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78462295360">+7 (846) 229-53-60</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-		       }else
-			   {if($_COOKIE['city_name']=='Алматы')
-                {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+77273507537">+7 (727) 350-75-37</a>';
-			    }else
-			   {echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+74952155475">+7 (495) 215-54-75</a>';
-		       }}}}}}}
+
+			/*echo'<pre>';print_r( $_COOKIE['city_name'] );echo'</pre>'.__FILE__.' '.__LINE__;
+			die(__FILE__ .' '. __LINE__ );*/
+
+            echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+74952155475">+7 (495) 215-54-75</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
+
+
 		    ?>
 			    <div id="elektro_email">
 				<a href="mailto:sales@pro-spec.ru" target="_blank" title="Написать нам письмо" style="font-size: 14px; font-family: SEGOEUI,tahoma; color: #000000; text-decoration: none;">sales@pro-spec.ru</a>
 				</div>
 				</div>
 				<?php if($this->countModules('elektro-cart') ) : ?>
-				<div class="joomla-cart span-7 last">
-	  	 			<jdoc:include type="modules" name="elektro-cart" style="none" />
-				</div>
+				<div class="cart-my">
+				    <div class="joomla-cart span-7 last">
+	  	 			    <jdoc:include type="modules" name="elektro-cart" style="none" />
+				    </div>
+
+                </div>
+
 			<?php endif; ?>
 
 			</div>

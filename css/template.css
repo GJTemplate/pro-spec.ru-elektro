@@ -1011,7 +1011,7 @@ ul.joomla-nav_topmenu li a:hover {
 }
 .container{min-width: 683px;}
 #elektro_logo {
-    /*float: left;*/
+    float: left;
     margin: 0px 0 0 20px;
     width: auto;
 }
@@ -4512,7 +4512,7 @@ z-index: 1;}
     margin: -9999px;
     position: absolute;
 }
-.prod_price .addtocart-button, .btn.btn-info.quickorder {
+.prod_price .addtocart-button {
 	background: #fff !important;
 	border: none;
 	border-radius: 5px;
@@ -5692,7 +5692,7 @@ right:70px}
 
 .btn-info {
 	max-width: 100%;
-	background: #f56212 !important;
+	background: #f56212;
 	padding: 14px 0px;
 	width: 40%;
 	margin-left: auto;

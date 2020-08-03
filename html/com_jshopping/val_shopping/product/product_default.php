@@ -1,6 +1,10 @@
 <?php defined( '_JEXEC' ) or die(); ?>
 <?php $product = $this->product?>
-<?php include(dirname(__FILE__)."/load.js.php");?>
+<?php include(dirname(__FILE__)."/load.js.php");
+
+
+
+?>
 <div class="jshop productfull" itemscope itemtype="https://schema.org/Product">
 <!--верх-->
 <div  class="b1c-good" >

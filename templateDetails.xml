@@ -153,7 +153,7 @@
 		<position>cart_slide</position>
 		<position>cart-dilliveri</position>
 		<position>bottom_pro1</position>
-		<position>logo-2</position>
+
 	</positions>
 
 	<!-- 	For core templates, we also install/uninstall the language files in the core language folders.
