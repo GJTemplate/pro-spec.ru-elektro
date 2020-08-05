@@ -90,7 +90,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=1250px">
 <meta http-equiv="cache-control" content="no-cache">
 <meta name="google-site-verification" content="n7_JBknQ5IEAOoAelFD4m7F3VIYZBPpMB7XR16eetHg" />
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+
 <script type="text/javascript">
 var __cs = __cs || [];
 __cs.push(["setCsAccount", "vkDFcfw7_uRq5WubZ2cUvY6S7g54gpgM"]);

@@ -6734,7 +6734,7 @@ div.contactus-lightbox-closer > i {
 }
 }
 @media only screen and (max-width: 1280px) {
-	.prod_price .addtocart-button, .btn.btn-info.quickorder {
+	.prod_price .addtocart-button {
     font-size: 12px;
 }
 /*.mainblock .button_buy {
