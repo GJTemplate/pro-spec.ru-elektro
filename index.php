@@ -358,7 +358,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<span><a class="mobileButton" href="?device=mobile" rel="nofollow">Мобильная версия</a></span>
 		<?php if($this->countModules('elektro-search') or $this->countModules('position-0')) : ?>
 				<div class="joomla-search span-7 last">
-	  	 			<div id="phone"><jdoc:include type="modules" name="position-0" style="none" /></div>
+	  	 			<div id="phone">
+	  	 			<jdoc:include type="modules" name="position-0" style="none" />
+	  	 			</div>
 
 				</div>
 			<?php endif; ?>
@@ -371,19 +373,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<jdoc:include type="modules" name="elektro-header-menu" style="none" />
 					<div style="clear: both;"></div>
 				</div>
-				<jdoc:include type="modules" name="logo-2" style="none"/>
 
 
 
-
-
-				<div class="geolocation" style="float: left; padding: 3px 0px 0px;">
+                <div class="geolocation" style="float: left; padding: 3px 0px 0px;">
 				    <jdoc:include type="modules" name="region-select" style="none" />
                 </div>
-
-
-
-								<div id="back-top">
+                <div id="back-top">
 
                                     <div id="top_menu">
                                         <span class="mycategoryMenu">Категории</span>
@@ -411,15 +407,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<a href="mailto:sales@pro-spec.ru" target="_blank" title="Написать нам письмо" style="font-size: 14px; font-family: SEGOEUI,tahoma; color: #000000; text-decoration: none;">sales@pro-spec.ru</a>
 				</div>
 				</div>
-				<?php if($this->countModules('elektro-cart') ) : ?>
+
 				<div class="cart-my">
 				    <div class="joomla-cart span-7 last">
-	  	 			    <jdoc:include type="modules" name="elektro-cart" style="none" />
-				    </div>
+                        <jdoc:include type="modules" name="elektro-cart" style="none" />
+                    </div>
+				    <div class="u-f">
+                        <jdoc:include type="modules" name="logo-2" style="none"/>
+                     </div>
 
                 </div>
 
-			<?php endif; ?>
+
 
 			</div>
 		</div>
