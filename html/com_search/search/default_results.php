@@ -60,7 +60,7 @@ function manufacturerSearchSubmit(manufacturer_id){
 		<dt class="result-title">
 		<?php echo $this->pagination->limitstart + $result->count . '. '; ?>
 		<?php if ($result->href) : ?>
-			<a href="<?php echo JRoute::_($result->href); ?>"<?php if ($result->browsernav == 1) : ?> target="_blank"<?php endif; ?>>
+			<a class="default_results" href="<?php echo JRoute::_($result->href); ?>"<?php if ($result->browsernav == 1) : ?> target="_blank"<?php endif; ?>>
 				<?php echo $result->title; ?>
 			</a>
 		<?php else : ?>

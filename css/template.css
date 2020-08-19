@@ -5406,6 +5406,10 @@ border: 2px solid #fff;
 * {
 	font-family: 'GT Eesti Pro', sans-serif;
 }
+
+.akeeba-sociallogin-buttons {
+    display: none;
+}
 /*#top_menu{max-width: 1600px;}*/
 #jt_jshopping_label_slider #jt_prev_l a, #jt_jshopping_label_slider #jt_next_l a{
     height: 37px!important;
