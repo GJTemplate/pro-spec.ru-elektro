@@ -5,6 +5,9 @@ $params = [ 'debug' => true ,] ;
 
 
 
+
+
+
 ?>
 <div class="jshop">
 <?php if ($this->category->seoname){ ?>

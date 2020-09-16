@@ -5,8 +5,9 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('_JEXEC') or die;
+    defined('_JEXEC') or die;
 
+    $app = \Joomla\CMS\Factory::getApplication();
 
 
 
@@ -18,7 +19,24 @@ defined('_JEXEC') or die;
         $version = $dom->getElementsByTagName('version')->item(0)->textContent;
 		define('TEMPLATE_VERSION', $version );
 	}
+    defined('TMPL_ELEKTRO_DEBUG' )?:define( 'TMPL_ELEKTRO_DEBUG', $this->params->get('debug', false) ) ;
+    defined('TMPL_ELEKTRO_CRITICAL_AS_FILE' )?:define( 'TMPL_ELEKTRO_CRITICAL_AS_FILE', $this->params->get('critical_as_file', false) ) ;
 
+
+    $controller = $app->input->get('controller', null);
+
+
+
+    \GNZ11\Document\Document::addIncludeStyleDeclaration(
+            JPATH_THEMES . '/elektro/assets/css/header.critical.css',
+            ['debug'=>TMPL_ELEKTRO_DEBUG,'asFile' =>TMPL_ELEKTRO_DEBUG ]) ;
+
+
+
+
+   /* $app = \Joomla\CMS\Factory::getApplication()->input ;
+    echo'<pre>';print_r( $app );echo'</pre>'.__FILE__.' '.__LINE__;
+    die(__FILE__ .' '. __LINE__ );*/
 
 
 
@@ -39,6 +57,20 @@ $app = JFactory::getApplication();
 	<head>
 		<!-- The following JDOC Head tag loads all the header and meta information from your site config and content. -->
 		<jdoc:include type="head" />
+		<?php
+		 
+		/* echo'<pre>';print_r( \Joomla\CMS\Uri\Uri::root( ).'/plugins/search/joomshopping_two_lang/assets/css/products.css' );echo'</pre>'.__FILE__.' '.__LINE__;
+		 echo'<pre>';print_r( '/test/plugins/search/joomshopping_two_lang/assets/css/products.css' );echo'</pre>'.__FILE__.' '.__LINE__;
+
+		 die(__FILE__ .' '. __LINE__ );*/
+
+
+
+		 
+
+		 
+		 ?>
+<!--            <link href="--><?//=\Joomla\CMS\Uri\Uri::root(true)?><!--/plugins/search/joomshopping_two_lang/assets/css/products.css" rel="stylesheet"  >-->
 
             <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&subset=cyrillic-ext" rel="stylesheet">
 			<!-- Google Tag Manager -->
@@ -98,8 +130,14 @@ var __cs = __cs || [];
 __cs.push(["setCsAccount", "vkDFcfw7_uRq5WubZ2cUvY6S7g54gpgM"]);
 </script>
 
+<?php
 
-<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/assets/css/header.critical.css" type="text/css" />
+
+
+
+
+?>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -271,10 +309,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
 				</div>
 
-			<?php endif; ?>
-		<?php
-                 $controller = JRequest::getVar('controller', null);?>	
-		<div id="elektro_center" <?php if((!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout'))) : ?>style="max-width: 1600px; margin:0 auto; background:#ffffff;"<?php endif; ?>>
+		<?php endif; ?>
+
+        <div class="sub-breadcrumbs-mod">
+        <div class="layout">
+            <div class="catalog-settings">
+                <jdoc:include type="modules" name="head_mod_selected_filters" style="none" />
+            </div>
+        </div>
+
+
+        </div>
+
+
+		<div id="elektro_center" <?php
+		if((!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout'))) : ?>style="max-width: 1600px; margin:0 auto; background:#ffffff;"<?php endif; ?>>
 			<?php if($this->countModules('left_left') ) : ?>
 			<?php
                  if (!($controller == 'cart')) : ?>
@@ -284,7 +333,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                  if (!($controller == 'checkout')) : ?>
 
 				<div class="elektro-left">
-	  	 			<div class="elektro-top-left"><jdoc:include type="modules" name="left_left" style="xhtml" /></div>
+	  	 			<div class="elektro-top-left">
+	  	 			<jdoc:include type="modules" name="left_left" style="xhtml" />
+	  	 			</div>
 					<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
 				</div>
 			<?php endif; ?>

@@ -16,7 +16,7 @@ $doc->addCustomTag($html) ;
     <a href="">
             <div>
             <span style="width: 242px; height: 85px; margin: 10px 0px;">
-                <img alt="" src="images/logo.png"
+                <img alt="" src="<?= JURI::root() ?>images/logo.png?<?= TEMPLATE_VERSION ?>"
                      style="margin: 10px 0px; width: 200px; height: 70px;"/>
             </span>
             </div>

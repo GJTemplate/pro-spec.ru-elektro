@@ -1,0 +1,18 @@
+/* ====================  Scroll Bar  ==================== */
+/* width */
+.scroll-special-style::-webkit-scrollbar {
+    width: 7px;
+}
+/* Track */
+.scroll-special-style::-webkit-scrollbar-track {
+    background: #dedcdb;
+}
+/* Handle */
+.scroll-special-style::-webkit-scrollbar-thumb {
+    background: #a09f9e;
+    border-radius:20px 20px 20px 20px
+}
+/* Handle on hover */
+.scroll-special-style::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

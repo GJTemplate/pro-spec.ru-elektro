@@ -1,0 +1,71 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 11.09.2020 09:28
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+
+.search{
+    float: left;
+    width: auto;
+}
+.results_head {
+    padding: 10px 10px;
+    margin: 30px 15px;
+    float: left;
+    border: 1px solid red;
+    width: 100%;
+}
+.categorys-r-line-name{
+    width: 100%;
+    max-height: 100px;
+    float: left;
+    overflow-x: auto;
+}
+
+
+.r-head-wrp {
+    position: relative;
+    margin: 10px 0;
+}
+.r-head {
+    position: absolute;
+    top: -34px;
+    background: #fff;
+}
+.r-head span {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+.r-head-text {
+    font-size: 1rem;
+}
+.r-line{
+    float: left;
+    width: 25%;
+    margin-bottom: 10px;
+}
+.r-line-name{
+
+}
+@media (max-width: 767px){
+
+}
+@media (max-width: 425px){
+    .results_head{
+        margin: 30px 3px;
+        width: calc(100% - 30px);
+        /* width: auto; */
+    }
+    .r-line{
+        width: 50%;
+    }
+}
+@media (max-width: 320px){}

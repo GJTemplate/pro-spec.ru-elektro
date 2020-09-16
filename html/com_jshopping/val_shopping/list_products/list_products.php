@@ -11,7 +11,7 @@
                 <div class="panel" >
                 <div class="elektro-top-left">
 				<?php 
-		$document   = & JFactory::getDocument();
+		$document   =   JFactory::getDocument();
 		$renderer   = $document->loadRenderer('modules');
         $options    = array('style' => 'xhtml');
         $position   = 'mob_left';

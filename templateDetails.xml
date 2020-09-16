@@ -7,7 +7,7 @@
 	<authorUrl>http://mystery27.pp.ua</authorUrl>
 	<copyright>Copyright (C) 2015 All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.1.4</version>
+	<version>1.1.5</version>
 	<description>TPL_elektro_XML_DESCRIPTION</description>
 	<files>
 		<folder>assets</folder>
@@ -35,6 +35,39 @@
 	<updateservers>
 		<server type="extension" name="Template pro-spec elektro">https://raw.githubusercontent.com/GJTemplate/pro-spec.ru-elektro/master/template_update.xml</server>
 	</updateservers>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="debug"
+					   type="radio"
+					   default="0"
+					   label="TEMPLATE_DETAILS_DEBUG"
+					   description="TEMPLATE_DETAILS_DEBUG_DESC"
+					   class="btn-group btn-group-yesno"
+					   showon=""
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="critical_as_file"
+					   type="radio"
+					   default="0"
+					   label="TEMPLATE_DETAILS_CSITICAL_CSS_AS_FILE"
+					   description="TEMPLATE_DETAILS_CSITICAL_CSS_AS_FILE_DESC"
+					   class="btn-group btn-group-yesno"
+					   showon="debug:1"
+				>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+
+
+			</fieldset>
+		</fields>
+	</config>
+
 
 	<positions>
 		<position>elektro-bottomleft</position>

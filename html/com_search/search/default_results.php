@@ -8,14 +8,28 @@
  */
 
 // no direct access
+use Joomla\CMS\Factory;
+
 defined('_JEXEC') or die;
 
-$app = JFactory::getApplication();
+$app = Factory::getApplication();
 $categorys = $app->get('joomshopping_categorys_search', array());
+
+
+
+
+
+
+
 $category_id = JFactory::getApplication()->input->getInt('category_id', 0);
 // $manufacturers = $app->get('joomshopping_manufacturers_search', array());
 // $manufacturer_id = JFactory::getApplication()->input->getInt('manufacturer_id', 0);
 // $searchword = JFactory::getApplication()->input->getString('searchword', '');
+
+
+
+
+
 ?>
 <?php if ($categorys && $app->input->get('type') == 'raw') { ?>
 <div id="joomshopping_categorys_search">
@@ -59,13 +73,26 @@ function manufacturerSearchSubmit(manufacturer_id){
 <dl>
 		<dt class="result-title">
 		<?php echo $this->pagination->limitstart + $result->count . '. '; ?>
-		<?php if ($result->href) : ?>
-			<a class="default_results" href="<?php echo JRoute::_($result->href); ?>"<?php if ($result->browsernav == 1) : ?> target="_blank"<?php endif; ?>>
-				<?php echo $result->title; ?>
-			</a>
-		<?php else : ?>
-			<?php echo $result->title; ?>
-		<?php endif; ?>
+
+
+            <?php
+            if( $result->href ){ ?>
+                <a class="default_results" href="<?php
+                echo JRoute::_($result->href); ?>"<?php
+                if( $result->browsernav == 1 ) : ?> target="_blank"<?php
+                endif; ?>>
+                    <?= $result->title; ?>
+                </a>
+            <?php
+            }
+            else
+            {
+                echo $result->title;
+            } ?>
+
+
+
+
 	</dt>
 		<?php if ($result->section) : ?>
 		<dd class="result-category">

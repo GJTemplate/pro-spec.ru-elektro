@@ -6,7 +6,15 @@
 	 * @copyright   A copyright
 	 * @license     A "Slug" license name e.g. GPL2
 	 */
-	
+
+
+
+
+
+/*echo'<pre>';print_r( TMPL_ELEKTRO_DEBUG );echo'</pre>'.__FILE__.' '.__LINE__;
+echo'<pre>';print_r( TMPL_ELEKTRO_CRITICAL_AS_FILE );echo'</pre>'.__FILE__.' '.__LINE__;
+
+die(__FILE__ .' '. __LINE__ );*/
 	
 	$titles = array(' %d позиция', ' %d позиции', ' %d позиций');
 	
@@ -20,68 +28,22 @@
 	$limit = $app->input->get('limit' );
 	$start = $app->input->get('start' , 0 );
 	$ordering = $app->input->get('ordering' , 'popular' );
-	
-	
-	
+
+
+$pathStyle = JPATH_THEMES . '/elektro/assets/css/critical.com_search.css';
+$params = [
+    'debug' => 1 ,
+    'asFile' => 1 ,
+];
+\GNZ11\Document\Document::addIncludeStyleDeclaration($pathStyle, $params);
+
+
+
+
 	$section = array();
 	
-	JLoader::registerNamespace( 'GNZ11' , JPATH_LIBRARIES . '/GNZ11' , $reset = false , $prepend = false , $type = 'psr4' );
+
 	$countText = \GNZ11\Document\Text::declOfNum( $this->total , $titles );
-	
-	$doc->addStyleDeclaration('
-.search{
-    float: left;
-    width: auto;
-}
-.results_head {
-    padding: 10px 10px;
-    margin: 30px 15px;
-    float: left;
-    border: 1px solid red;
-    width: 100%;
-}
-.r-head-wrp {
-    position: relative;
-    margin: 10px 0;
-}
-.r-head {
-    position: absolute;
-    top: -34px;
-    background: #fff;
-}
-.r-head span {
-    padding: 10px;
-    font-size: 1.2rem;
-}
-.r-head-text {
-    font-size: 1rem;
-}
-.r-line{
-    float: left;
-    width: 25%;
-    margin-bottom: 10px;
-}
-.r-line-name{
-
-}
-@media (max-width: 767px){
-
-}
-@media (max-width: 425px){
-    .results_head{
-        margin: 30px 3px;
-        width: calc(100% - 30px);
-        /* width: auto; */
-    }
-    .r-line{
-        width: 50%;
-    }
-}
-@media (max-width: 320px){}
-	');
-	
-	// /templates/elektro/html/com_search/search/default_results_head.php
-	
 
 ?>
 	<div class="results_head">
@@ -89,9 +51,20 @@
 	
 	
 <?php
-	
-	
-	
+
+
+
+//    echo'<pre>';print_r( $categorys );echo'</pre>'.__FILE__.' '.__LINE__;
+//    die(__FILE__ .' '. __LINE__ );
+
+
+
+
+//echo'<pre>';print_r( count( $this->results ) );echo'</pre>'.__FILE__.' '.__LINE__;
+
+
+
+
 	foreach ( $this->results as $result)
 	{
 		$section_id = $result->section_id ;
@@ -117,30 +90,34 @@
 			<?php
 		}#END IF
 		
-		if( $section_current_id == $section_id ) continue ; #END IF
+
 		
-		
-		$section_name = $result->section  ;
-		$section_url = JUri::root() . '?'
-			.'searchword='.$searchword
-			.'&category_id='.$section_id
-			.'&searchphrase='.$searchphrase
-			.'&limit='.$limit
-			.'&start='.$start
-			.'&ordering='.$ordering
-			.'&view=search&option=com_search'   ;
-		
-			?>
-			<div class="r-line">
-				<a class="r-line-name"  href="<?= $section_url ?>">
-					<?= $section_name ?>
-				</a>
-			</div>
-		<?php
-		
+
 		
 	}#END FOREACH
-	
+
+    $categorys = $app->get('joomshopping_categorys_search', array());
+?>
+        <div class="categorys-r-line-name scroll-special-style">
+        <?php
+foreach ($categorys as $id => $category)
+{
+    ?>
+    <div class="r-line">
+        <a title="<?= $category->name ?>" class="r-line-name" href="<?= $category->href ?>">
+            <?= \GNZ11\Document\Text::truncation( $category->name, 41);  ?>
+        </a>
+    </div>
+
+
+    <?php
+}
+?>
+        </div>
+            <?php
+
+
+
 	?>
 	</div><!--/.results_head -->
 	

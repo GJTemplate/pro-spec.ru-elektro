@@ -9,6 +9,19 @@
 
 defined('_JEXEC') or die;
 // /templates/elektro/html/com_search/search/default.php
+
+
+$app = \Joomla\CMS\Factory::getApplication();
+$appData = [
+    'total' =>  $this->total ,
+];
+$app->set('com_search' , $appData );
+
+
+
+
+
+
 ?>
 <div class="search<?php echo $this->pageclass_sfx; ?>">
 	<?php if ($this->params->get('show_page_heading')) : ?>
@@ -20,8 +33,8 @@ defined('_JEXEC') or die;
 			<?php endif; ?>
 		</h1>
 	<?php endif; ?>
-	<?php echo $this->loadTemplate('form'); ?>
-	<?php if ($this->error == null && count($this->results) > 0) : ?>
+	<?php // echo $this->loadTemplate('form'); ?>
+	<?php if ($this->error == null && count( $this->results) > 0) : ?>
 		<?php
 		echo $this->loadTemplate('results_head');
 		echo $this->loadTemplate('results');

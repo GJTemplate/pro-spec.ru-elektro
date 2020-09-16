@@ -7,7 +7,7 @@
          url("/style/rouble-webfont.svg#als_rublregular") format("svg");
     font-weight: normal;
     font-style: normal;
-}
+} 
 @font-face {
     font-family: 'GT Eesti Pro';
     src: local('/style/GT Eesti Pro Display Light'), local('GT-Eesti-Pro-Display-Light'),
@@ -341,34 +341,20 @@ ul.joomla-nav_topmenu li a:hover {
     box-shadow: 5px 5px 5px #ccc;
     transform: rotate(360deg);
 }
-#gkSearch input.inputbox {
+#gkSearch input.inputbox { 
     color: #999999;
     font-size: 11px;
     margin: 5px 12px;
     padding: 2px 8px 1px;
 }
-#roksearch_search_str {
-    background:  url("/images/my-img/search.svg");
-    box-sizing: border-box;
-    border: 1px solid #ff7800;
-    height: 44px;
-    color: #000000;
-  background-repeat: no-repeat;
-    background-position: 98% 50%;
-    margin: 0 auto;
-    padding: 0 55px 0 10px;
-    vertical-align: middle;
-    width: 100%;
-    background-color: #fff;
-}
-#roksearch_search_str::placeholder{color: #aba8a8;}
+ 
+ 
 .span-7 table {
     margin: 0;
     padding: 0;
 }
 #my_litle_banner{display: none;}
-.roksearch_results {
-}
+ 
 .breadcrumbs {
 	/*! border-bottom: 1px dashed #dadada; */
 	margin: 0 auto;
@@ -7208,3 +7194,26 @@ pointer-events:none
 	top: 13px;
 	width: 7px;
 }*/
+
+
+body.roksearch-active{
+    /* position: fixed; */
+    /* right: -65px; */
+    /* margin-right: 30px; */
+    /* width: calc(100% - 15px); */
+    height: 100vh;
+    overflow-y: hidden;
+    padding-right: 15px; /* Avoid width reflow */
+}
+
+body.roksearch-active div#header_elektro .container {
+    padding-right: 15px;
+}
+
+body.roksearch-active div#header_elektro .container .mobileButton {
+    right: 15px;
+}
+
+body.roksearch-active #header_elektro {
+    /* margin-right: 20px; */
+}

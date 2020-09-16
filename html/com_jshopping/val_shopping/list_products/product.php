@@ -1,5 +1,9 @@
 <?php defined('_JEXEC') or die(); ?>
-<?php echo $product->_tmp_var_start ;
+<?php
+/**
+ * @var object $product
+ */
+echo $product->_tmp_var_start ;
 
 
 
