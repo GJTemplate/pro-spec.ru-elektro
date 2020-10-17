@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
  */
 class elektroInstallerScript
 {
-    protected $RemoveFiles = [
+    protected static $RemoveFiles = [
         '/language/en-GB/en-GB.tpl_elektro.ini',
         '/language/en-GB/en-GB.tpl_elektro.sys.ini'
     ];
@@ -114,8 +114,11 @@ class elektroInstallerScript
      */
     function preflight($typeExt, $parent)
     {
-        
-        echo'<pre>';print_r( $this->RemoveFiles );echo'</pre>'.__FILE__.' '.__LINE__;
+
+        # Если есть файлы для удаления
+        if (count( self::$RemoveFiles )) $this->deleteFiles(); #END IF
+
+        echo'<pre>';print_r( self::$RemoveFiles );echo'</pre>'.__FILE__.' '.__LINE__;
         die(__FILE__ .' '. __LINE__ );
 
         
@@ -125,9 +128,6 @@ class elektroInstallerScript
         $this->release = (string)$parent->get('manifest')->version;
 
         echo'<pre>';print_r( $this->checkVersionGnz11($parent ) );echo'</pre>'.__FILE__.' '.__LINE__;
-
-
-
         # Проверить версию Gnz11
         if( !$this->checkVersionGnz11($parent, true) )
         {
@@ -138,9 +138,25 @@ class elektroInstallerScript
             } #END IF
         } #END IF
 
-
         JLoader::registerNamespace('GNZ11', JPATH_LIBRARIES . '/GNZ11', $reset = false, $prepend = false, $type = 'psr4');
         \GNZ11\Extensions\ScriptFile::updateProcedure($typeExt, $parent);
+        return true ;
+    }
+
+    /**
+     * Удаление файлов указанны в массиве self::$RemoveFiles
+     * @since 3.9
+     * @auhtor Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+     * @date 17.10.2020 21:15
+     *
+     */
+    protected function deleteFiles(){
+        foreach ( self::$RemoveFiles  as $removeFile)
+        {
+            echo'<pre>';print_r( $removeFile );echo'</pre>'.__FILE__.' '.__LINE__;
+            
+        }#END FOREACH
+
     }
 
     /**
