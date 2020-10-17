@@ -22,6 +22,9 @@ class elektroInstallerScript
         '/language/en-GB/en-GB.tpl_elektro.sys.ini'
     ];
 
+
+
+
     /**
      * @var string Url архива библиотеки GNZ11
      * @since 3.9
