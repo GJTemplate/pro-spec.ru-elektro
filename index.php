@@ -8,19 +8,29 @@
     defined('_JEXEC') or die;
 
     $app = \Joomla\CMS\Factory::getApplication();
+    $doc= \Joomla\CMS\Factory::getDocument();
 
-
-
-    //		define('TEMPLATE_VERSION', 'dev');
-    if (!defined('TEMPLATE_VERSION')){
-        $xml_file = JPATH_THEMES . '/elektro/templateDetails.xml';
-        $dom = new DOMDocument("1.0", "utf-8");
-        $dom->load($xml_file);
-        $version = $dom->getElementsByTagName('version')->item(0)->textContent;
-		define('TEMPLATE_VERSION', $version );
-	}
     defined('TMPL_ELEKTRO_DEBUG' )?:define( 'TMPL_ELEKTRO_DEBUG', $this->params->get('debug', false) ) ;
-    defined('TMPL_ELEKTRO_CRITICAL_AS_FILE' )?:define( 'TMPL_ELEKTRO_CRITICAL_AS_FILE', $this->params->get('critical_as_file', false) ) ;
+
+    if (!defined('TEMPLATE_VERSION')){
+        $ver = '?v='.$this->params->get('version_tmpl', '1.1.6') ;
+        // Если включена отладка для шаблона - то грузим файлы
+        //  без медиа версии
+        if( TMPL_ELEKTRO_DEBUG  ) $ver = null; #END IF
+        define('TEMPLATE_VERSION', $ver  );
+        $doc->addScriptOptions('__tmpV', TEMPLATE_VERSION , false);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     $controller = $app->input->get('controller', null);
@@ -46,6 +56,7 @@ JHtml::_('behavior.framework', true);
 
 /* The following line gets the application object for things like displaying the site name */
 $app = JFactory::getApplication();
+
 ?>
 <?php echo '<?'; ?>xml version="1.0" encoding="<?php echo $this->_charset ?>"?>
 <?php $this->setGenerator(''); ?>
@@ -55,33 +66,82 @@ $app = JFactory::getApplication();
 	  xmlns:fb="https://www.facebook.com/2008/fbml"
 	  xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" >
 	<head>
+        <link rel="preload" href="/style/GTEestiProDisplay-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+        <link rel="preload" href="/style/GTEestiProDisplay-Light.woff" as="font" type="font/woff" crossorigin="anonymous">
+<!--        <link rel="preload" href="/style/GTEestiProDisplay-Light.ttf" as="font" type="font/woff2" crossorigin="anonymous">-->
+
+        <?php
+        $app = \Joomla\CMS\Factory::getApplication();
+        $option = $app->input->get( 'option' , false );
+        $controller = $app->input->get( 'controller' , false );
+
+        /*echo'<pre>';print_r( $controller );echo'</pre>'.__FILE__.' '.__LINE__;
+        die(__FILE__ .' '. __LINE__ );*/
+
+        ?>
+
+<?php
+
+
+
+        if( $option == 'com_jshopping' && $controller == 'category'  ){
+        ?>
+            <link rel="preload" href="<?= \Joomla\CMS\Uri\Uri::root()?>modules/mod_jshopping_unijax_filter/css/default.css" as="style">
+	        <link rel="preload" href="<?= \Joomla\CMS\Uri\Uri::root()?>templates/elektro/css/moduletable_brend.css" as="style">
+        <?php
+        }else if( $option == 'com_jshopping' && $controller == 'product'  ){
+
+            $doc->addStyleSheet(\Joomla\CMS\Uri\Uri::root().'templates/elektro/assets/css/product/module_slider.css');
+//            $doc->addStyleSheet(\Joomla\CMS\Uri\Uri::root().'templates/elektro/assets/css/product/product_tab_desc.css');
+
+        }#END IF
+
+
+    /*echo'<pre>';print_r( $app->input );echo'</pre>'.__FILE__.' '.__LINE__;
+    die(__FILE__ .' '. __LINE__ );
+    [option] => com_jshopping
+            [controller] => product
+*/
+
+/*echo'<pre>';print_r( $app->input );echo'</pre>'.__FILE__.' '.__LINE__;
+die(__FILE__ .' '. __LINE__ );*/
+
+
+
+
+ ?>
+
+
+
+
+
+
 		<!-- The following JDOC Head tag loads all the header and meta information from your site config and content. -->
 		<jdoc:include type="head" />
-		<?php
-		 
-		/* echo'<pre>';print_r( \Joomla\CMS\Uri\Uri::root( ).'/plugins/search/joomshopping_two_lang/assets/css/products.css' );echo'</pre>'.__FILE__.' '.__LINE__;
-		 echo'<pre>';print_r( '/test/plugins/search/joomshopping_two_lang/assets/css/products.css' );echo'</pre>'.__FILE__.' '.__LINE__;
-
-		 die(__FILE__ .' '. __LINE__ );*/
 
 
 
-		 
 
-		 
-		 ?>
-<!--            <link href="--><?//=\Joomla\CMS\Uri\Uri::root(true)?><!--/plugins/search/joomshopping_two_lang/assets/css/products.css" rel="stylesheet"  >-->
 
-            <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&subset=cyrillic-ext" rel="stylesheet">
 			<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TS4LFLL');</script>
+})(window,document,'script','dataLayer','GTM-TS4LFLL');
+</script>
+
+
 <!-- End Google Tag Manager -->
 
 		<!-- The following five lines load the Blueprint CSS Framework (https://blueprintcss.org). If you don't want to use this framework, delete these lines. -->
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/screen.critical.css" type="text/css" media="screen, projection" />
+
+		<!-- The following line loads the template CSS file located in the template folder. -->
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/template.critical.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/screen.css" type="text/css" media="screen, projection" />
 
 		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/blueprint/print.css" type="text/css" media="print" />
@@ -91,15 +151,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-        <?php
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/template.css<?= TEMPLATE_VERSION ?>" type="text/css" />
 
 
 
 
- ?>
+<?php
+/**
+ * Стили для основного меню категории
+ * /templates/elektro/css/menu-item.css Стили для основного меню подключение перенесено в компонент
+ * @see https://pro-spec.ru/testvik/test/administrator/index.php?option=com_pro_critical&view=html_task&layout=edit&id=2
+ * <link rel="stylesheet" href="--><?php //echo $this->baseurl ?>/templates/elektro/css/menu-item.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+ */
+?>
 
-		<!-- The following line loads the template CSS file located in the template folder. -->
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/css/template.css?v_<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+
 
 		<!-- The following four lines load the Blueprint CSS Framework and the template CSS file for right-to-left languages. If you don't want to use these, delete these lines. -->
 		<?php if($this->direction == 'rtl') : ?>
@@ -108,8 +175,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<?php endif; ?>
 
 		<!-- The following line loads the template JavaScript file located in the template folder. It's blank by default. -->
-		<script type="text/javascript" async src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/template.js"></script>
-		<script type="text/javascript" charset="utf-8" src="<?= $this->baseurl ?>/buyme/js/buyme.js"></script>
+		<script async src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/template.js"></script>
+
+
+
+
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/products_viewed.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/moduletable_brend.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/elektro_bottom.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/css/jshop_pagination.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+
+<!--		<link data-not-interact="1" rel="stylesheet" href="--><?php //echo $this->baseurl ?><!--/plugins/jshoppingproducts/quickorder/assets/css/style.css--><?//= TEMPLATE_VERSION ?><!--" type="text/css" />-->
+<!--		<link data-not-interact="1" rel="stylesheet" href="--><?php //echo $this->baseurl ?><!--/plugins/jshoppingproducts/quickorder/assets/css/themes/dark.css--><?//= TEMPLATE_VERSION ?><!--" type="text/css" />-->
+
+
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -119,7 +201,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ga('create', 'UA-47068506-1', 'pro-spec.ru');
   ga('send', 'pageview');
 </script>
-<meta name="viewport" content="width=1250px">
+<meta name="viewport" content="width=1250">
 <meta http-equiv="cache-control" content="no-cache">
 <meta name="google-site-verification" content="n7_JBknQ5IEAOoAelFD4m7F3VIYZBPpMB7XR16eetHg" />
 
@@ -130,70 +212,61 @@ var __cs = __cs || [];
 __cs.push(["setCsAccount", "vkDFcfw7_uRq5WubZ2cUvY6S7g54gpgM"]);
 </script>
 
+
+
+
+
+
+
+
+
+
+    <?php
+    # Стили для добавления к CCSS на странице товара
+    if( $option == 'com_jshopping' && $controller == 'product'  ){
+    ?>
+        <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/assets/css/critical/addInProduct.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+    <?php
+    }#END IF
+    ?>
+
+
+
 <?php
-
-
-
-
+# Добавлять ко всем критичиским стилям
+# Настройки компонента com_pro_critical  https://pro-spec.ru/testvik/test/administrator/index.php?option=com_config&view=component&component=com_pro_critical&path=
+# Владка Critical CSS
+# Критические стили ВКЛ.
+# Добавить стили ко всем созданным критическим стилям
 
 ?>
+<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/elektro/assets/css/critical/addAll.css<?= TEMPLATE_VERSION ?>" type="text/css" />
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS4LFLL"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS4LFLL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="content">
+        <div id="text">
 
-<div id="content">	
-<div id="text">
-<?php if($this->countModules('elektro-topmenu') or $this->countModules('position-2') ) : ?>
-			<div id="top_menu" <?php if($this->countModules('elektro-banner_12') ) : ?> style="width:100%;" <?php endif; ?> >
-                <div class="menu-container">
-			<div id="top_menu-new">
-			<jdoc:include type="modules" name="elektro-topmenu" style="none" />
 
-			</div>
-             </div>
-			</div>
-			<jdoc:include type="modules" name="position-1" style="container" />
-		<?php endif; ?>
-	<div id="elektro_top">
+	        <?= JLayoutHelper::render('heder.elektro_top', [] ); ?>
 
-	
-		 <?php if($this->countModules('my-top-menu') ) : ?>
-				<div class="my-top-menu">
-	  	 			<jdoc:include type="modules" name="my-top-menu" style="none" />
-				</div>
-				<div style="clear: both; width: 100%; height: 0px; margin: 0px;"></div>
-			<?php endif; ?>
-        <?php if($this->countModules('elektro-banner_1') ) : ?>
-				<div class="elektro-banner_1">
-	  	 			<jdoc:include type="modules" name="elektro-banner_1" style="none" />
-				</div>
-			<?php endif; ?>
-		<?php if($this->countModules('elektro-banner_left') or $this->countModules('elektro-banner_right')) : ?>
-			<div class="sliders" >
-				<div class="elektro-banner_left">
-	  	 			<jdoc:include type="modules" name="elektro-banner_left" style="none" />
-				</div>
-				<div class="slidersCenter">
-					<div class="sliderTopCenter">
-					<jdoc:include type="modules" name="my_litle_banner_center" style="none" />
-					</div>
-					<div class="sliderBottomCenter">
-                <jdoc:include type="modules" name="my_litle_banner_right" style="none" />
-					</div>
-				</div>
-				<div class="elektro-banner_right">
-	  	 			<jdoc:include type="modules" name="my_litle_banner_left" style="none" />
-				</div>
-				<!-- <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div> -->
-			</div>
-			<?php endif; ?>
-	</div>
-	
-        <?php if($this->countModules('elektro-center_top') or $this->countModules('elektro-center_top2') or $this->countModules('mainbody_center') ) : ?>
+	        <?php
+            if($this->countModules('elektro-center_top') or $this->countModules('elektro-center_top2') or $this->countModules('mainbody_center') ) : ?>
 				<div class="elektro-center_top">
                     <div style=""><jdoc:include type="modules" name="mainbody_center" style="xhtml" /></div>
 	  	 			<div style=""><jdoc:include type="modules" name="elektro-center_top" style="none" /></div>
@@ -201,17 +274,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				</div>
 				<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
 			<?php endif; ?>
-			<?php if($this->countModules('mainbody_center1') or $this->countModules('mainbody_center2') or $this->countModules('mainbody_center3') or $this->countModules('mainbody_center4')) : ?>
+			<?php
+			if($this->countModules('mainbody_center1') or $this->countModules('mainbody_center2') or $this->countModules('mainbody_center3') or $this->countModules('mainbody_center4')) : ?>
                 
-				<div class="elektro-center_boss"><h3>Избранное</h3>
-<div class="top-tab-content">
-<div class="tab-content">
-<div class="title-tab-content"><a href="catalog/metallodetektory-i-metalloiskateli">Металлодетекторы</a></div>
-<div style=""><jdoc:include type="modules" name="mainbody_center1" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="mainbody_center1-1" style="none" /></div>
-</div>
-</div>
+				<div class="elektro-center_boss">
+				    <h3>Избранное</h3>
+                    <div class="top-tab-content">
+                        <div class="tab-content">
+                            <div class="title-tab-content">
+                                <a href="catalog/metallodetektory-i-metalloiskateli">Металлодетекторы</a>
+                            </div>
+                            <div style="">
+                                <jdoc:include type="modules" name="mainbody_center1" style="none" />
+                            </div>
+                            <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                            <div class="bottom-tab-content">
+                                <jdoc:include type="modules" name="mainbody_center1-1" style="none" />
+                            </div>
+                        </div>
+                    </div>
 <div class="top-tab-content">
 <div class="tab-content">
 <div class="title-tab-content"><a href="catalog/sredstva-i-sistemy-bezopasnosti/antiterroristicheskaya-bezopasnost">Антитеррористическая безопасность</a></div>
@@ -245,236 +326,195 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 				</div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
                 <div class="elektro-center_boss">
-<div class="top-tab-content">
-<div class="tab-content">
-<div class="title-tab-content"><a href="catalog/sistemy-kontrolia-dostupa">Контроль доступа</a></div>
-<div style=""><jdoc:include type="modules" name="b-mainbody_center1" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center1-1" style="none" /></div>
-</div>
-</div>
-<div class="top-tab-content">
-<div class="tab-content">
-<div class="title-tab-content"><a href="catalog/sistemy-videonabliudeniia">Видеонаблюдение</a></div>
-<div style=""><jdoc:include type="modules" name="b-mainbody_center2" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center2-2" style="none" /></div>
-</div>
-</div>
-<div class="top-tab-content">
-<div class="tab-content">
-<div class="title-tab-content"><a href="catalog/prochaia-amuniciia">Снаряжение</a></div>
-<div style=""><jdoc:include type="modules" name="b-mainbody_center3" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center3-3" style="none" /></div>
-</div>
-</div>
-<div class="top-tab-content">
-<div class="tab-content" style="margin-right: 0px ! important;">
-<div class="title-tab-content"><a href="catalog/radiosvyaz">Связь</a></div>
-<div style=""><jdoc:include type="modules" name="b-mainbody_center4" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center4-4" style="none" /></div>
-</div>
-</div>
-<div class="top-tab-content">
-<div class="tab-content" style="margin-right: 0px ! important;">
-<div class="title-tab-content"><a href="catalog/pozharnoe-oborudovanie">Пожарная безопасность</a></div>
-<div style=""><jdoc:include type="modules" name="b-mainbody_center5" style="none" /></div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center5-5" style="none" /></div>
-</div>
-</div>
-				</div>
-<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-            <?php endif; ?>
-			 <?php if($this->countModules('my_litle_banner_left') or $this->countModules('my_litle_banner_right') or $this->countModules('my_litle_banner_center') or $this->countModules('my_litle_banner_left2') or $this->countModules('my_litle_banner_right2')) : ?>
-			    <div id="my_litle_banner">
-				      <div id="my_litle_banner_left"><jdoc:include type="modules" name="my_litle_banner_left" style="none" /></div>
-					  <div id="my_litle_banner_center"><jdoc:include type="modules" name="my_litle_banner_center" style="none" /></div>
-					  <div id="my_litle_banner_right"><jdoc:include type="modules" name="my_litle_banner_right" style="none" /></div>
-			    <?php if($this->countModules('my_litle_banner_left2') or $this->countModules('my_litle_banner_right2')) : ?>
-					  <div id="my_litle_banner_left2"><jdoc:include type="modules" name="my_litle_banner_left2" style="none" /></div>
-					  <div id="my_litle_banner_right2"><jdoc:include type="modules" name="my_litle_banner_right2" style="none" /></div>
-				<?php endif; ?>
-			    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-				</div>
-				<?php endif; ?>
-		<div id="content-elektro" >
-        <?php if($this->countModules('breadcrumbs') ) : ?>
-				<div class="breadcrumbs">
-	  	 			<jdoc:include type="modules" name="breadcrumbs" style="none" />
-					<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-				</div>
-
-		<?php endif; ?>
-
-        <div class="sub-breadcrumbs-mod">
-        <div class="layout">
-            <div class="catalog-settings">
-                <jdoc:include type="modules" name="head_mod_selected_filters" style="none" />
-            </div>
-        </div>
-
-
-        </div>
-
-
-		<div id="elektro_center" <?php
-		if((!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout'))) : ?>style="max-width: 1600px; margin:0 auto; background:#ffffff;"<?php endif; ?>>
-			<?php if($this->countModules('left_left') ) : ?>
-			<?php
-                 if (!($controller == 'cart')) : ?>
-			<?php
-                 if (!($controller == 'product')) : ?>
-				<?php
-                 if (!($controller == 'checkout')) : ?>
-
-				<div class="elektro-left">
-	  	 			<div class="elektro-top-left">
-	  	 			<jdoc:include type="modules" name="left_left" style="xhtml" />
-	  	 			</div>
-					<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-				</div>
-			<?php endif; ?>
-            <?php endif; ?>
-			<?php endif; ?>
-            <?php endif; ?>
-			<div class="center" <?php if($this->countModules('left_left') && (!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout')) ) : ?>style="width: 73.6%; float: left;"<?php endif; ?> >
-			<?php if($this->countModules('elektro-topquote') or $this->countModules('position-15') ) : ?>
-				<?php
-                     $controller = JRequest::getVar('controller', null);
-
-                     if (!($controller == 'product')) : ?>
-				<div class="banner_category"><jdoc:include type="modules" name="elektro-topquote" style="xhtml" /></div>
-				 <?php endif; ?>
-				<jdoc:include type="modules" name="position-15" style="none" />
-
-			<?php endif; ?>
-				<jdoc:include type="message" />
-				<jdoc:include type="component" />
-				<jdoc:include type="modules" name="elektro-topquote1" style="xhtml" />
-				<hr />
-			<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-			</div>
-			<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-			</div>
-				<?php if($this->countModules('elektro-bottomleft') or $this->countModules('position-11')) : ?>
-			 	<div class="span-7 colborder">
-					<jdoc:include type="modules" name="elektro-bottomleft" style="bottommodule" />
-					<jdoc:include type="modules" name="position-11" style="bottommodule" />
-                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-	        	</div>
-	        <?php endif; ?>
-            <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-			<?php if($this->countModules('elektro-center_bottom') or $this->countModules('elektro-center_bottom1')
-				or $this->countModules('elektro-center_bottom2')) : ?>
-				<div class="elektro-center_bottom_old">
-	        		<div class="elektro-center_bottom" <?php if($this->countModules('elektro-center_bottom1') ) : ?>style="width:70%;"<?php endif; ?> ><jdoc:include type="modules" name="elektro-center_bottom"  style="xhtml" /></div>
-					<div class="elektro-center_bottom1"><jdoc:include type="modules" name="elektro-center_bottom1"  style="xhtml" /></div>
-					<div class="elektro-center_bottom2"><jdoc:include type="modules" name="elektro-center_bottom2"  style="xhtml" /></div>
-                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-				</div>
-			<?php endif; ?>
-	        <?php if($this->countModules('elektro-bottommiddle') or $this->countModules('position-9')
-				or $this->countModules('position-10')) : ?>
-				<div class="span-7 last">
-	        		<jdoc:include type="modules" name="elektro-bottommiddle"  style="xhtml" />
-					<jdoc:include type="modules" name="position-9"  style="xhtml" />
-					<jdoc:include type="modules" name="position-10"  style="xhtml" />
-
-				</div>
-			<?php endif; ?>
-			<?php if($this->countModules('elektro-sidebar') || $this->countModules('position-7')
-			|| $this->countModules('position-4') || $this->countModules('position-5')
-			|| $this->countModules('position-3') || $this->countModules('position-6') || $this->countModules('position-8'))
-			: ?>
-				<div class="right">
-					<jdoc:include type="modules" name="elektro-sidebar" style="sidebar" />
-					<jdoc:include type="modules" name="position-7" style="sidebar" />
-					<jdoc:include type="modules" name="position-4" style="sidebar" />
-					<jdoc:include type="modules" name="position-5" style="sidebar" />
-					<jdoc:include type="modules" name="position-6" style="sidebar" />
-					<jdoc:include type="modules" name="position-8" style="sidebar" />
-					<jdoc:include type="modules" name="position-3" style="sidebar" />
-				</div>
-             <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-			<?php endif; ?>
-        </div>
-			<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
-<div id="header_elektro">
-		<div class="container ">
-		<span><a class="mobileButton" href="?device=mobile" rel="nofollow">Мобильная версия</a></span>
-		<?php if($this->countModules('elektro-search') or $this->countModules('position-0')) : ?>
-				<div class="joomla-search span-7 last">
-	  	 			<div id="phone">
-	  	 			<jdoc:include type="modules" name="position-0" style="none" />
-	  	 			</div>
-
-				</div>
-			<?php endif; ?>
-			<div class="joomla-header span-16 append-1">
-                <?= JLayoutHelper::render('heder.logo', [] ); ?>
-
-				<div class="header__menuLink__icon "> </div>
-				<div class="overlayHeader"><span class="overlayClose"></span></div>
-				<div style="display:none" >
-					<jdoc:include type="modules" name="elektro-header-menu" style="none" />
-					<div style="clear: both;"></div>
-				</div>
-
-
-
-                <div class="geolocation" style="float: left; padding: 3px 0px 0px;">
-				    <jdoc:include type="modules" name="region-select" style="none" />
-                </div>
-                <div id="back-top">
-
-                                    <div id="top_menu">
-                                        <span class="mycategoryMenu">Категории</span>
-
-                                        <div class="mycategoryBlocks">
-
-                                            <jdoc:include type="modules" name="elektro-header-menu" style="none"/>
-                                            <span class="myoverlayClose"></span></div>
-                                        <div class="mycategoryBack"></div>
-                                    </div>
-				
-               </div>
-				<div id="search"><jdoc:include type="modules" name="elektro-search" style="none" /></div>
-							    <div id="elektro_phone">
-			<?php
-
-			/*echo'<pre>';print_r( $_COOKIE['city_name'] );echo'</pre>'.__FILE__.' '.__LINE__;
-			die(__FILE__ .' '. __LINE__ );*/
-
-            echo'<a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+74952155475">+7 (495) 215-54-75</a><br/><a  style="color: #000000; font-size: 18px; font-family: SEGOEUI,tahoma;" href="tel:+78001005475">+7 (800) 100-54-75</a>';
-
-
-		    ?>
-			    <div id="elektro_email">
-				<a href="mailto:sales@pro-spec.ru" target="_blank" title="Написать нам письмо" style="font-size: 14px; font-family: SEGOEUI,tahoma; color: #000000; text-decoration: none;">sales@pro-spec.ru</a>
-				</div>
-				</div>
-
-				<div class="cart-my">
-				    <div class="joomla-cart span-7 last">
-                        <jdoc:include type="modules" name="elektro-cart" style="none" />
+                    <div class="top-tab-content">
+                    <div class="tab-content">
+                    <div class="title-tab-content"><a href="catalog/sistemy-kontrolia-dostupa">Контроль доступа</a></div>
+                    <div style=""><jdoc:include type="modules" name="b-mainbody_center1" style="none" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    <div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center1-1" style="none" /></div>
                     </div>
-				    <div class="u-f">
-                        <jdoc:include type="modules" name="logo-2" style="none"/>
+                    </div>
+                    <div class="top-tab-content">
+                    <div class="tab-content">
+                    <div class="title-tab-content"><a href="catalog/sistemy-videonabliudeniia">Видеонаблюдение</a></div>
+                    <div style=""><jdoc:include type="modules" name="b-mainbody_center2" style="none" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    <div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center2-2" style="none" /></div>
+                    </div>
+                    </div>
+                    <div class="top-tab-content">
+                    <div class="tab-content">
+                    <div class="title-tab-content"><a href="catalog/prochaia-amuniciia">Снаряжение</a></div>
+                    <div style=""><jdoc:include type="modules" name="b-mainbody_center3" style="none" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    <div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center3-3" style="none" /></div>
+                    </div>
+                    </div>
+                    <div class="top-tab-content">
+                    <div class="tab-content" style="margin-right: 0px ! important;">
+                    <div class="title-tab-content"><a href="catalog/radiosvyaz">Связь</a></div>
+                    <div style=""><jdoc:include type="modules" name="b-mainbody_center4" style="none" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    <div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center4-4" style="none" /></div>
+                    </div>
+                    </div>
+                    <div class="top-tab-content">
+                    <div class="tab-content" style="margin-right: 0px ! important;">
+                    <div class="title-tab-content"><a href="catalog/pozharnoe-oborudovanie">Пожарная безопасность</a></div>
+                    <div style=""><jdoc:include type="modules" name="b-mainbody_center5" style="none" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    <div class="bottom-tab-content"><jdoc:include type="modules" name="b-mainbody_center5-5" style="none" /></div>
+                    </div>
+                    </div>
+				</div>
+                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+            <?php endif; ?>
+			<?php
+			if($this->countModules('my_litle_banner_left') or $this->countModules('my_litle_banner_right') or $this->countModules('my_litle_banner_center') or $this->countModules('my_litle_banner_left2') or $this->countModules('my_litle_banner_right2')) : ?>
+			        <div id="my_litle_banner">
+			            <div id="my_litle_banner_left"><jdoc:include type="modules" name="my_litle_banner_left" style="none" /></div>
+					    <div id="my_litle_banner_center"><jdoc:include type="modules" name="my_litle_banner_center" style="none" /></div>
+					    <div id="my_litle_banner_right"><jdoc:include type="modules" name="my_litle_banner_right" style="none" /></div>
+                        <?php
+                        if($this->countModules('my_litle_banner_left2') or $this->countModules('my_litle_banner_right2')) : ?>
+                            <div id="my_litle_banner_left2"><jdoc:include type="modules" name="my_litle_banner_left2" style="none" /></div>
+                            <div id="my_litle_banner_right2"><jdoc:include type="modules" name="my_litle_banner_right2" style="none" /></div>
+                        <?php
+                        endif; ?>
+                        <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+				    </div>
+				<?php
+				endif; ?>
+
+            <div id="header_elektro">
+                <div class="container ">
+                    <span><a class="mobileButton" href="?device=mobile" rel="nofollow">Мобильная версия</a></span>
+                     <div class="joomla-header span-16 append-1">
+                        <div class="header-left">
+                            <?= JLayoutHelper::render('heder.logo', [] ); ?>
+                            <?= JLayoutHelper::render('heder.top_menu', [] ); ?>
+                        </div>
+                        <div id="search">
+                            <jdoc:include type="modules" name="elektro-search" style="none" />
+                        </div>
+                        <div class="header-right">
+                            <?= JLayoutHelper::render('heder.header_right', [] ); ?>
+                        </div>
                      </div>
-
                 </div>
+            </div>
+
+            <?php
+            if($this->countModules('elektro-topmenu') or $this->countModules('position-2') ) : ?>
+                <div id="elektro-topmenu" <?php if($this->countModules('elektro-banner_12') ) { ?> style="width:100%;" <?php } ?> >
+                    <div class="menu-container">
+                        <div id="top_menu-new">
+			                <jdoc:include type="modules" name="elektro-topmenu" style="none" />
+                        </div>
+                    </div>
+			    </div>
+			    <jdoc:include type="modules" name="position-1" style="container" />
+		    <?php
+		    endif; ?>
 
 
 
-			</div>
-		</div>
-				
-		</div>
+            <div id="content-elektro" >
+                <?= JLayoutHelper::render('heder.breadcrumbs', [] ); ?>
+                <?= JLayoutHelper::render('heder.sub-breadcrumbs-mod', [] ); ?>
+
+
+                    <div id="elektro_center" <?php
+            if((!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout'))) : ?>style="max-width: 1600px; margin:0 auto; background:#ffffff;"<?php endif; ?>>
+                <?php if($this->countModules('left_left') ) : ?>
+                <?php
+                     if (!($controller == 'cart')) : ?>
+                <?php
+                     if (!($controller == 'product')) : ?>
+                    <?php
+                     if (!($controller == 'checkout')) : ?>
+
+
+
+
+                    <div class="elektro-left">
+<!--                        --><?//= JLayoutHelper::render('dummys.dummy-filter', [] ); ?>
+
+
+                        <div class="elektro-top-left">
+                        <jdoc:include type="modules" name="left_left" style="xhtml" />
+                        </div>
+                        <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    </div>
+                <?php endif; ?>
+                <?php endif; ?>
+                <?php endif; ?>
+                <?php endif; ?>
+                <div class="center" <?php if($this->countModules('left_left') && (!($controller == 'product'))&& (!($controller == 'cart')) && (!($controller == 'checkout')) ) : ?>style="width: 73.6%; float: left;"<?php endif; ?> >
+                <?php if($this->countModules('elektro-topquote') or $this->countModules('position-15') ) : ?>
+                    <?php
+                         $controller = JRequest::getVar('controller', null);
+
+                         if (!($controller == 'product')) : ?>
+                    <div class="banner_category"><jdoc:include type="modules" name="elektro-topquote" style="xhtml" /></div>
+                     <?php endif; ?>
+                    <jdoc:include type="modules" name="position-15" style="none" />
+
+                <?php endif; ?>
+                    <jdoc:include type="message" />
+                    <jdoc:include type="component" />
+                    <jdoc:include type="modules" name="elektro-topquote1" style="xhtml" />
+                    <hr />
+                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                </div>
+                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                </div>
+                    <?php if($this->countModules('elektro-bottomleft') or $this->countModules('position-11')) : ?>
+                    <div class="span-7 colborder">
+                        <jdoc:include type="modules" name="elektro-bottomleft" style="bottommodule" />
+                        <jdoc:include type="modules" name="position-11" style="bottommodule" />
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    </div>
+                <?php endif; ?>
+                <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                <?php if($this->countModules('elektro-center_bottom') or $this->countModules('elektro-center_bottom1')
+                    or $this->countModules('elektro-center_bottom2')) : ?>
+                    <div class="elektro-center_bottom_old">
+                        <div class="elektro-center_bottom" <?php if($this->countModules('elektro-center_bottom1') ) : ?>style="width:70%;"<?php endif; ?> ><jdoc:include type="modules" name="elektro-center_bottom"  style="xhtml" /></div>
+                        <div class="elektro-center_bottom1"><jdoc:include type="modules" name="elektro-center_bottom1"  style="xhtml" /></div>
+                        <div class="elektro-center_bottom2"><jdoc:include type="modules" name="elektro-center_bottom2"  style="xhtml" /></div>
+                    <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                    </div>
+                <?php endif; ?>
+                <?php if($this->countModules('elektro-bottommiddle') or $this->countModules('position-9')
+                    or $this->countModules('position-10')) : ?>
+                    <div class="span-7 last">
+                        <jdoc:include type="modules" name="elektro-bottommiddle"  style="xhtml" />
+                        <jdoc:include type="modules" name="position-9"  style="xhtml" />
+                        <jdoc:include type="modules" name="position-10"  style="xhtml" />
+
+                    </div>
+                <?php endif; ?>
+                <?php if($this->countModules('elektro-sidebar') || $this->countModules('position-7')
+                || $this->countModules('position-4') || $this->countModules('position-5')
+                || $this->countModules('position-3') || $this->countModules('position-6') || $this->countModules('position-8'))
+                : ?>
+                    <div class="right">
+                        <jdoc:include type="modules" name="elektro-sidebar" style="sidebar" />
+                        <jdoc:include type="modules" name="position-7" style="sidebar" />
+                        <jdoc:include type="modules" name="position-4" style="sidebar" />
+                        <jdoc:include type="modules" name="position-5" style="sidebar" />
+                        <jdoc:include type="modules" name="position-6" style="sidebar" />
+                        <jdoc:include type="modules" name="position-8" style="sidebar" />
+                        <jdoc:include type="modules" name="position-3" style="sidebar" />
+                    </div>
+                 <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+                <?php endif; ?>
+            </div>
+            <div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
+
 		</div>
 	<div style="clear: both; width: 100%; height: 1px; margin: 0px;"></div>
 		<?php if($this->countModules('bottom_pro')) : ?>
@@ -492,10 +532,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		  
 		  <div >
 		          <jdoc:include type="modules" name="footer_nav" />
-				 <a href="//scroogefrog.com/en/?referrer_id=12733"><img src="//stat.clickfrog.ru/img/clfg_ref/icon_0.png" alt="click fraud detection"></a><div id="clickfrog_counter_container" style="width:0px;height:0px;overflow:hidden;"></div><script type="text/javascript">(function(d, w) {var clickfrog = function() {if(!d.getElementById('clickfrog_js_container')) {var sc = document.createElement('script');sc.type = 'text/javascript';sc.async = true;sc.src = "//stat.clickfrog.ru/c.js?r="+Math.random();sc.id = 'clickfrog_js_container';var c = document.getElementById('clickfrog_counter_container');c.parentNode.insertBefore(sc, c);}};if(w.opera == "[object Opera]"){d.addEventListener("DOMContentLoaded",clickfrog,false);}else {clickfrog();}})(document, window);</script><noscript><div style="width:0px;height:0px;overflow:hidden;"><img src="//stat.clickfrog.ru/no_script.php?img" style="width:0px; height:0px;" alt=""/></div></noscript><script type="text/javascript">var clickfrogru_uidh='da15b3332a39db7350b3266986470128';</script>
+				 <a href="//scroogefrog.com/en/?referrer_id=12733">
+				    <img src="//stat.clickfrog.ru/img/clfg_ref/icon_0.png" alt="click fraud detection">
+				 </a>
+				 <div id="clickfrog_counter_container" style="width:0px;height:0px;overflow:hidden;"></div>
+				 <script>
+				    /*(function(d, w) {
+				        var clickfrog = function() {
+				            if( !d.getElementById('clickfrog_js_container') ) {
+				                var sc = document.createElement('script');
+				                sc.type = 'text/javascript';
+				                sc.async = true;
+				                sc.src = "//stat.clickfrog.ru/c.js?r="+Math.random();
+				                sc.id = 'clickfrog_js_container';
+				                var c = document.getElementById('clickfrog_counter_container');
+				                c.parentNode.insertBefore(sc, c);
+				            }
+				        };
+				        if(w.opera === "[object Opera]"){
+				            d.addEventListener("DOMContentLoaded",clickfrog,false);
+				        }else {
+				            clickfrog();
+				        }
+				    })(document, window);*/
+				    </script>
+				    <noscript><div style="width:0px;height:0px;overflow:hidden;"><img src="//stat.clickfrog.ru/no_script.php?img" style="width:0px; height:0px;" alt=""/></div></noscript>
+
+				    <script type="text/javascript">var clickfrogru_uidh='da15b3332a39db7350b3266986470128';</script>
 				  <?php
-		// include_once 'clickfrogru_udp_tcp.php';
-	?>
+		            // include_once 'clickfrogru_udp_tcp.php';
+	                ?>
 
 		  </div>
 
@@ -540,18 +606,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/23630017" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
- <!--LiveInternet counter--><script type="text/javascript"><!--
-document.write("<a href='//www.liveinternet.ru/click' "+
-"target=_blank><img src='//counter.yadro.ru/hit?t26.1;r"+
-escape(document.referrer)+((typeof(screen)=="undefined")?"":
-";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-";"+Math.random()+
-"' alt='' title='LiveInternet: показано число посетителей за"+
-" сегодня' "+
-"border='0' width='88' height='15'><\/a>")
-//--></script><!--/LiveInternet-->
+
+
+<div id="uPage_el_14"></div>
+<!--LiveInternet counter-->
 <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    var $ = jQuery ;
+    setTimeout(function (){
+        $("#uPage_el_14").html("<a href='//www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t26.1;r"+
+        escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";"+Math.random()
+        +"' alt='' title='LiveInternet: показано число посетителей за"+" сегодня' "+"border='0' width='88' height='15'><\/a>");
+    },3000);
+});
+
+
+</script><!--/LiveInternet-->
+
+
+
+<script type="text/javascript">
+
+// #top_menu-new li.parent ul
+document.addEventListener("DOMContentLoaded", function () {
+    var $ = jQuery;
+    var $menuParent = $('#top_menu-new li.parent');
+    $menuParent.on({
+    mouseenter: function () {
+        wgnz11.load.css('<?= $this->baseurl ?>/templates/elektro/css/top_menu-new.css<?= TEMPLATE_VERSION ?>')
+        console.log( 'mouseenter' )
+    },
+    mouseleave: function () {
+       // console.log( 'mouseleave' )
+    }
+})
+});
+
+
   jQuery(function(){
 jQuery('dl.tabses dt').click(function(){
 jQuery(this)
@@ -606,13 +697,43 @@ var google_remarketing_only = false;
 </div>
 </noscript>
 <?php }?>
+
+
+
+
 <!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>
-(function(){ var widget_id = 'cXKcp7fV5O';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+(function(){
+    var widget_id = 'cXKcp7fV5O';
+    var d=document;var w=window;function l(){
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//code.jivosite.com/script/widget/'+widget_id;
+        var ss = document.getElementsByTagName('script')[0];
+        ss.parentNode.insertBefore(s, ss);
+    }
+    if( d.readyState === 'complete' ){
+        l();
+    }else{
+        if(w.attachEvent){
+            w.attachEvent('onload',l);
+        }else{
+            w.addEventListener('load',l,false);
+        }
+    }
+})();</script>
+
 <!-- {/literal} END JIVOSITE CODE -->
-<!--<script src="--><?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/js/custom-js.js"></script>-->
-<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/ingevents.4.0.8.js"></script>  
+<!--<script src="-->
+<?php //echo $this->baseurl ?><!--/templates/--><?php //echo $this->template ?><!--/js/custom-js.js"></script>-->
+
+
+<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/ingevents.4.0.8.js"></script>
+
+<script async charset="utf-8" src="<?= $this->baseurl ?>/buyme/js/buyme.js"></script>
+
+
 	</body>
 </html>
 
