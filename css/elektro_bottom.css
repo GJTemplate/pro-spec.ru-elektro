@@ -1,0 +1,187 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 12.10.2020 19:25
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+table {
+    margin-bottom: 1.4em;
+    width: 100%;
+}
+table {
+    margin-bottom: 1.4em;
+    width: 100%;
+}
+caption, th, td {
+    float: none !important;
+    font-weight: normal;
+    text-align: left;
+}
+p {
+    margin: 0 0 1.5em;
+}
+input[type="text"]{
+    background-color: #fff;
+    border: 1px solid #bbb;
+    color: #000;
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+#elektro_bottom {
+    background:#dfdfdf;
+    clear: both;
+    margin: 40px 0 0;
+    padding: 20px 0 20px 0px;
+    width: 100%;
+}
+.footer_acy {
+    width: 900px;
+    margin: 10px auto 40px;
+    background:url("/templates/elektro/img/mail-acy.png") no-repeat left;
+    padding: 0 0 0 60px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.footer_acy .acymailing_module{
+
+    /*! width: 600px; */
+    margin: 0;
+    float: right;
+}
+div.acymailing_module, .acymailing_module div {
+    padding: 0 !important;
+    /* margin: 0 !important; */
+    border-style: none !important;
+}
+table.acymailing_form {
+    margin: auto;
+    border: 0px !important;
+}
+.acymailing_fulldiv tr, .acymailing_fulldiv td {
+    border: 0px;
+}
+.acymailing_module_form td {
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+.footer_acy th, .footer_acy td, .footer_acy caption {
+    padding: 0px;
+}
+#elektro_bottom > div table td {
+    vertical-align: top;
+}
+#elektro_bottom > div table td:first-child {
+    vertical-align: middle;
+    padding-left: 0px;
+}
+.footer_acy .acy_requiredField input {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    padding: 0 10px;
+    box-shadow: 0 1px 6px #ccc inset;
+    color: #636466;
+    margin: 0 30px;
+}
+.footer_acy .button.subbutton.btn.btn-primary{
+    text-decoration: none;
+    background-color: #b11116;
+    height: 40px;
+    width: 150px;
+    border: none;
+}
+.footerFlex {
+    display: flex;
+    justify-content: space-between;
+}
+.footerFlex #elektro_logo {
+    margin: 0px;
+}
+#elektro_bottom a {
+    color: #333;
+    line-height: 1;
+    font-size: 14px;
+    transition: 0.5s;
+    text-decoration: none;
+}
+#elektro_bottom .footerFlex > div a {
+    display: block;
+    margin-bottom: 10px;
+}
+#elektro_bottom a > span {
+    color: #333 !important;
+    transition: 0.5s;
+}
+#elektro_bottom > div span {
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+}
+#elektro_bottom .footerFlex > div:last-child a{display: inline;}
+#elektro_bottom a:hover{transition:0.5s;color: #fff;}
+#elektro_bottom a:hover > span{color:#ffffff;transition: 0.5s;}
+#elektro_logo *:hover {
+    opacity: 0.9;
+}
+
+
+/* .region_select-link_cities  выбор региона в footer */
+.region_select-link_cities ul li {
+    float: left;
+    margin: 2px 5px;
+    background: #ccc;
+}
+
+
+/* Form - Заявка на */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

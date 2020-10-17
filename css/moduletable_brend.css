@@ -1,0 +1,88 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 12.10.2020 17:38
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+h3{
+    /* color: #111; */
+    /* font-weight: normal; */
+    /* padding: 0 10px; */
+}
+h3 {
+    /* font-size: 1.5em; */
+    line-height: 1;
+    margin-bottom: 1em;
+}
+.moduletable_brend {
+    margin: 10px 0 0 !important;
+}
+.moduletable_brend {
+    background: #fff;
+    border-radius: 0;
+    display: block;
+    height: auto;
+    margin: 20px 0 !important;
+    padding: 7px 0;
+    z-index: 6;
+    /*! border: 1px solid; */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.moduletable_brend h3 {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px dashed #dadada;
+    color: #ff7800;
+    font-weight: normal;
+}
+.moduletable_brend h3 {
+    font-size: 18px;
+    padding: 0 0 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.elektro-left ul {
+    list-style: outside none none;
+}
+.elektro-top-left ul {
+    margin: 0;
+    padding: 0;
+}
+.moduletable_brend li {
+    /*! border-bottom: 1px solid #e0e0e0; */
+    border-top: 1px solid #ffffff;
+    color: #000;
+    cursor: pointer;
+    display: block;
+    padding: 5px 5px 5px 24px;
+}
+.moduletable_brend li:hover {
+    background: #cccccc none repeat scroll 0 0;
+}
+
+.moduletable_brend a {
+    color: #333;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 30px;
+    line-height: 30px;
+}
+
+.banneritem img {
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    max-width: 100%;
+}

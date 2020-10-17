@@ -9,6 +9,11 @@ echo $product->_tmp_var_start ;
 
 
 
+
+
+
+
+
 ?>
 
     <!-- id="block_product" -->
@@ -192,10 +197,22 @@ echo $product->_tmp_var_start ;
 
 
                             <?php echo $product->_tmp_img_before; ?>
-                            <?php echo $product->_tmp_var_my_buttons; ?>
-                            <?php echo $product->_tmp_var_wis_buttons; ?>
+                            <?php
+                            
+
+
+                            
+                            // кнопка добавить к сравнению
+                            echo $product->_tmp_var_my_buttons; ?>
+                            <?php
+                            //  Добавить в избранное
+                            echo $product->_tmp_var_wis_buttons; ?>
                         </div>
-                        <?php echo $product->_tmp_var_bottom_buttons; ?>
+                        <?php
+//                        die(__FILE__ .' '. __LINE__ );
+
+                        echo $product->_tmp_var_bottom_buttons;
+                        ?>
                     </div>
                     <div class="description" style="display:none;">
 	      <span itemprop="description">

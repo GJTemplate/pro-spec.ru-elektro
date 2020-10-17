@@ -21,10 +21,10 @@ jQuery('.mycategoryBack').click(()=>{
 	jQuery('.mycategoryBack').css('display','none');
 	jQuery('.mycategoryBlocks').css('display','none');
 })
-jQuery('.myoverlayClose').click(()=>{
+/*jQuery('.myoverlayClose').click(()=>{
 	jQuery('.mycategoryBack').css('display','none');
 	jQuery('.mycategoryBlocks').css('display','none');
-})
+})*/
  jQuery('.header__menuLink__icon').click(()=>{
  	jQuery('.myoverlayHeader').css('display','block');
  });

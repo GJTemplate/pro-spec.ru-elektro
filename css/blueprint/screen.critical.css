@@ -1,0 +1,84 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 10.10.2020 03:11
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+@font-face {
+    font-family: "als_rublregular";
+    src: url("/style/rouble-webfont.eot");
+    src: url("/style/rouble-webfont.eot?#iefix") format("embedded-opentype"),
+    url("/style/rouble-webfont.woff") format("woff"),
+    url("/style/rouble-webfont.ttf") format("truetype"),
+    url("/style/rouble-webfont.svg#als_rublregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GT Eesti Pro';
+    /*url('/style/GTEestiProDisplay-Light.ttf') format('truetype');*/
+    src: local('/style/GT Eesti Pro Display Light'), local('GT-Eesti-Pro-Display-Light'),
+    url('/style/GTEestiProDisplay-Light.woff2') format('woff2'),
+    url('/style/GTEestiProDisplay-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'GT Eesti Pro', sans-serif;
+}
+html {
+    border: 0 none;
+    /* font-size: 100.01%; */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: RGB(244, 245, 248) none repeat scroll 0% 0%;
+    color: #222;
+    /* font-family: 'Montserrat',arial; */
+    font-size: 75%;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0;
+    /* min-width: 100%; */
+    width: 100%;
+    font-weight: 500;
+}
+.container {
+    margin: 0 auto;
+    min-width: 700px;
+	max-width: 1600px;
+	position:relative;
+}
+.clearfix, .container {
+    display: block;
+}
+a {
+    color: #113b5c;
+    text-decoration: underline;
+}
+a img {
+    border: medium none;
+}
+.append-1 {
+    width: 99%;
+}
+.span-16{
+    float: left;
+    margin-right: 10px;
+}
+.last {
+    margin-right: 0;
+}

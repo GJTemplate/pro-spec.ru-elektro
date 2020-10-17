@@ -1,0 +1,541 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 15.10.2020 05:26
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+a {
+    /* color: #113b5c; */
+    /* text-decoration: underline; */
+}
+
+a img {
+    border: medium none;
+}
+
+ul, ol {
+    margin: 0 1.5em 1.5em 0;
+    padding-left: 1.5em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+dl {
+    margin: 0 0 1.5em;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+em, dfn {
+    font-style: italic;
+}
+
+input[type="text"] {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    color: #000;
+}
+
+label {
+    /* font-weight: bold; */
+}
+h2 {
+    font-size: 2em;
+    margin-bottom: 0.1em;
+    color: #111;
+    font-weight: normal;
+    padding: 0 10px;
+}
+
+.full-desc h3 {
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 1em;
+    color: #111;
+    font-weight: normal;
+    padding: 0 10px;
+}
+
+caption, th, td {
+    float: none !important;
+    font-weight: normal;
+    text-align: left;
+}
+
+/*------------------------------------*/
+.button_back {
+    display: none;
+}
+.full-desc {
+    background: url('/templates/elektro/img/top-desc.jpg') repeat-x top #fff;
+}
+
+#tab-har table {
+    margin-bottom: 1.4em;
+    width: 100% !important;
+}
+
+.tabs {
+    margin: 20px auto 0;
+    overflow: hidden;
+    padding: 1px;
+    position: relative;
+    min-width: 700px;
+    max-width: 1600px;
+}
+
+.tabs dt {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #F1F1F1 -moz-linear-gradient(center top , #FFF, #F1F1F1) repeat scroll 0 0 !important;
+    /* border-color: #e8f0f5; */
+    border-image: none;
+    /* border-radius: 7px 7px 0 0; */
+    /* border-style: solid solid none; */
+    border-width: 1px 1px 0;
+    cursor: pointer;
+    float: left;
+    font-size: 17px;
+    font-weight: normal;
+    height: 69px;
+    line-height: 70px;
+    margin: 0 0 0 10px;
+    padding: 0 1.6em;
+    position: relative;
+    color: rgb(30, 107, 189);
+    font-weight: 600;
+}
+
+.tabs dt.selected, .tabs dt:hover {
+    /* background: #FFF none repeat scroll 0px 0px !important; */
+    /* border-color: #cccccc; */
+    cursor: auto;
+    z-index: 3;
+    border-bottom: 3px solid rgb(255, 143, 36);
+}
+
+.tabs dd {
+    /*! background: #fff none repeat scroll 0 0; */
+    display: none;
+    float: right;
+    margin: 70px 0 0 -100%;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.tabs dd.selected {
+    display: block;
+    font-size: 14px !important;
+    /*font-family: 'Montserrat', sans-serif !important;*/
+    color: #000000 !important;
+}
+
+.tabs dt:hover {
+    cursor: pointer;
+}
+
+.tabs .tab-content {
+    /*! border-top: 1px solid #cccccc; */
+    padding: 20px 20px 40px;
+    /*! background: RGB(244, 245, 248) none repeat scroll 0% 0%; */
+}
+
+.tabs .tab-content1 {
+    border: 1px solid #cccccc;
+    border-radius: 0 7px 7px;
+    padding: 20px 0 40px;
+}
+
+.tab-content-left {
+    float: left;
+    width: 100%;
+}
+
+.tab-content-right {
+    border: 1px solid #dadada;
+    border-radius: 8px;
+    float: right;
+    padding: 5px;
+    width: 35%;
+}
+
+.jshop td, .jshop tr {
+    padding: 0;
+}
+
+.tab-content-left td, .tab-content-left tr {
+    padding: 10px;
+}
+
+.tab-content p {
+    line-height: 1.7 !important;
+    margin: 0 0 1.5em !important;
+    font-weight: 500;
+}
+
+.tab-content-left p {
+    margin: 0;
+    padding: 0;
+}
+
+.tab-content-left tr:nth-child(2n+1) {
+    background: #f9f9f9 none repeat scroll 0 0;
+}
+
+.tab-content-left tr:nth-child(2n) {
+    background: #fff none repeat scroll 0 0;
+}
+
+.tab-content-left tr, .tab-content-left td {
+    border: medium none;
+}
+
+.tab-content-left table {
+    border: 0 none;
+}
+
+.my-opisanie .buttons_zakaz {
+    width: 250px;
+}
+
+.tab-content-left table p {
+    margin: 0 !important;
+}
+
+#bottom_karta {
+    margin: 0 0 40px;
+    overflow: hidden;
+}
+
+.vmest1 {
+    font-size: 27px;
+    line-height: 36px;
+    text-shadow: 0 1px 0 rgb(255, 255, 255);
+    padding-right: 15px;
+    font-weight: 900;
+    margin: 0 0 20px;
+}
+
+#bottom_karta .jshop-titleheading-2 {
+    display: none;
+}
+
+.jshop ul, .item-page ul {
+    margin: 0 0 1em 15px;
+}
+
+.jshop .list_product_demo {
+    padding-top: 10px;
+}
+
+.jshop .list_product_demo .download {
+    padding-left: 5px;
+}
+
+.articleContent li, .jshop li, #proforms_proforms li {
+    list-style-type: disc !important;
+    margin: 0 0 0 15px;
+}
+.center li {
+	/*list-style-type: square;*/
+	padding: 6px 0 0 20px;
+	position: relative;
+}
+div.jshop_prod_description {
+    padding: 20px;
+}
+.jshop_prod_description p, .jshop_prod_description div, .jshop_prod_description span {
+    font-family: SEGOEUI,tahoma;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 1.5em;
+    text-align: left !important;
+}
+
+/*=============================  Рейтинг     ========================================================================= */
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+div.rating-cancel,div.star-rating {
+    float: left;
+    width: 17px;
+    height: 15px;
+    text-indent: -999em;
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    overflow: hidden
+}
+
+div.rating-cancel,div.rating-cancel a {
+    background: url(/components/com_jshopping/images/delete.gif) no-repeat 0 -16px
+}
+
+div.star-rating,div.star-rating a {
+    background: url(/components/com_jshopping/images/star.gif) no-repeat 0 0px
+}
+
+div.rating-cancel a,div.star-rating a {
+    display: block;
+    width: 16px;
+    height: 100%;
+    background-position: 0 0px;
+    border: 0
+}
+
+div.star-rating-on a {
+    background-position: 0 -16px!important
+}
+
+div.star-rating-hover a {
+    background-position: 0 -32px
+}
+
+/* Read Only CSS */
+div.star-rating-readonly a {
+    cursor: default !important
+}
+
+/* Partial Star CSS */
+div.star-rating {
+    background: transparent!important;
+    overflow: hidden!important
+}
+
+/* END jQuery.Rating Plugin CSS */
+/*=============================   отзывы     ========================================================================= */
+.review_header {
+    border-bottom: 1px solid #cccccc;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.review_item {
+    border-bottom: 1px dotted #999999;
+    padding: 10px 10px 10px 0;
+}
+
+.review_user {
+    font-weight: bold;
+}
+
+.review_text {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.review_mark {
+    color: #333333;
+    /* display: none; */
+    height: 18px;
+    width: 90px;
+    float: left;
+}
+
+.jshop_code_prod {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.stars_no_active {
+    background-image: url("/components/com_jshopping/images/star.gif");
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    height: 16px;
+}
+
+.stars_active {
+    background-image: url("/components/com_jshopping/images/star.gif");
+    background-position: 0 -32px;
+    background-repeat: repeat-x;
+    height: 16px;
+}
+
+span.review {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#jshop_review_write > div {
+    margin-top: 5px;
+}
+
+#jshop_review_write label {
+    display: inline-block;
+    font-weight: normal;
+    width: 100%;
+}
+
+#jshop_review_write .inputbox {
+    border: 1px solid #cdcdcd;
+    color: #060606;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 29px;
+    line-height: 29px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 0 10px;
+    width: 300px;
+}
+
+#jshop_review_write textarea {
+    height: auto !important;
+}
+
+#jshop_review_write .button {
+    background-color: #4393c2;
+    border: medium none;
+    border-radius: 5px;
+    color: #ffffff !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    padding: 4px 18px;
+    text-align: center;
+    text-decoration: none !important;
+    transition-duration: 0.3s;
+    transition-property: background;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/*=============================   carousel   ==========================================================================*/
+[class$=-carousel] {
+    margin: 0 auto;
+}
+
+[class$=-carousel] {
+    height: 260px;
+    margin: 24px 0;
+    /* overflow: hidden; */
+    padding: 0 0 0 10px;
+}
+
+[class$=carousel-button-left] , [class$=carousel-button-right]   {
+    width: 28px;
+    height: 36px;
+    position: relative;
+    top: 100px;
+    cursor: pointer;
+}
+
+[class$=carousel-button-left]  {
+    float: left;
+    background: transparent url("/templates/elektro/images/carousel-left.png") no-repeat scroll 0% 0% ;
+}
+
+[class$=carousel-button-right] {
+    float: right;
+    /* Ð²Ñ‹Ñ€Ð°Ð²Ð½Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ñ€Ð°Ð²ÑƒÑŽ ÐºÐ½Ð¾Ð¿ÐºÑƒ Ð¿Ð¾ Ð¿Ñ€Ð°Ð²Ð¾Ð¼Ñƒ ÐºÑ€Ð°ÑŽ */
+    background: transparent url(/templates/elektro/images/carousel-right.png) no-repeat scroll 0% 0% ;
+    /* ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ° Ñ Ð¿Ñ€Ð°Ð²Ð¾Ð¹ ÐºÐ½Ð¾Ð¿ÐºÐ¾Ð¹ */
+}
+
+[class$=carousel-wrapper]{
+    width: 90%;
+    /* ÑˆÐ¸Ñ€Ð¸Ð½Ð° Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ ÐºÐ°Ñ€ÑƒÑÐµÐ»Ð¸ */
+    position: relative;
+    overflow: hidden;
+    /* ÑÐºÑ€Ñ‹Ð²Ð°ÐµÐ¼ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ, Ð²Ñ‹Ñ…Ð¾Ð´ÑÑ‰ÐµÐµ Ð·Ð° Ñ€Ð°Ð¼ÐºÐ¸ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ */
+    margin: 0 auto;
+    /* Ð²Ñ‹Ñ€Ð°Ð²Ð½Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð¾ Ñ†ÐµÐ½Ñ‚Ñ€Ñƒ Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ€Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð³Ð¾ Ð±Ð»Ð¾ÐºÐ° */
+}
+
+[class$=carousel-items] {
+    width: 100000px;
+    /* ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð±Ð¾Ð»ÑŒÑˆÑƒÑŽ ÑˆÐ¸Ñ€Ð¸Ð½Ñƒ Ð´Ð»Ñ Ð½Ð°Ð±Ð¾Ñ€Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² ÐºÐ°Ñ€ÑƒÑÐµÐ»Ð¸, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð² Ð½ÐµÑ‘ Ð²ÑÑ‘ Ð¿Ð¾Ð¼ÐµÑÑ‚Ð¸Ð»Ð¾ÑÑŒ */
+    position: relative;
+    /* Ð¿Ð¾Ð·Ð¸Ñ†Ð¸Ð¾Ð½Ð¸Ñ€ÑƒÐµÐ¼ Ð±Ð»Ð¾Ðº Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¹ Ð¾Ð±Ð»Ð°ÑÑ‚Ð¸ ÐºÐ°Ñ€ÑƒÑÐµÐ»Ð¸ */
+}
+
+[class$=carousel-block] {
+    float: left;
+    width: 200px;
+    padding: 5px 40px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+[class$=carousel-block] .block_item{
+    
+}
+
+#bottom_karta .item_name {
+    text-align: center;
+    height: 50px;
+    overflow: hidden;
+    margin: 0px 0px 10px;
+    line-height: 16px;
+}
+
+#bottom_karta .item_name a {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.item_name a {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 140%;
+    color: #5498ed;
+    /*! text-align: center; */
+    text-decoration: none;
+}
+
+#bottom_karta .item_image {
+    text-align: center;
+}
+
+#bottom_karta .item_price_1 {
+    float: left;
+    /*font-size: 1rem;*/
+    padding: 20px 0;
+    line-height: 30px;
+}
+
+[class$=carousel-block] .item_image img, [class$=carousel-wrapper] .item_image img {
+    width: 130px;
+    height: 130px;
+}
+
+#bottom_karta .button_buy {
+    background: #E9852C url("/images/icon-cart.png") no-repeat scroll 10px 50% / 18px 18px;
+    border: medium none !important;
+    box-shadow: none;
+    float: right;
+    font-family: arial;
+    font-size: 13px;
+    /* font-weight: bold; */
+    height: 30px;
+    line-height: 30px;
+    margin: 0px 0px 5px;
+    /* padding: 0px; */
+    width: 90px;
+    padding: 0 0 0 20px;
+    border-radius: 3px;
+}
+
+.block_item .button_buy {
+    margin-top: 20px!important;
+    transition: 0.5s;
+}
+
+.block_item .button_buy:hover {
+    transition: 0.5s;
+    background: #ffa600;
+    color: #fff
+}

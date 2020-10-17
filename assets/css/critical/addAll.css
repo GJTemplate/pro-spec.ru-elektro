@@ -1,0 +1,76 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 16.10.2020 22:06
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+/* Иконка список пожеланий */
+.ajax_cart_wl.min_view.type_view.wishlist_view{background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAbCAYAAACEP1QvAAADGklEQVRIib3WWaiVVRQH8N93tOCKNEAeKhsgKioPZA9CiFDkQGYZNomElamZhpeoKHoOSTCieqhosnooAqOgHsqgUjDEoS4NZAqVQxqahdBccmJ519Gv+51j56q3PxzY59tr7/8a9hqKRqOhDcZiBibiAvRgN9bhTbyDn0rHTsBkXIdLcSp+x2a8jzewEc1+8eaB30DyU/Awbkctv+3Fr7nXk9+24l68jml4DOfm3h+paE+eabG9ggfwXTvysSlwIXbhWbyd6z8xAhfjDlyF37AW4zAS7+Fp9OFnHJcemIoFOANfYxbNdWXy0ViNc/AhbsbOajQOYjaeTNJQohfPVaQOoY4X0ks7aU6g+c2wen0UinDbFRnLsGpfHjsZ16fle0uXfdof/+ZlFLfitQrdv/FLenXMoTdRrCgajYvGU1uDPbikPyYHMAdLcBpuw0uVK1vvR1HZ6YCw9OMMwaQatekp92iJ+JZ00yMZkv+yrFvsyQcdmDkcV+ef1SVXP4S7Mq7HGmvzvimRTudhezyA/HgNzsLKISCW3o1UPT3Ij88H9VduRiGJR7StcuzYYD/+xvBw+/c4myJy8gdsyt9Q4aQsPvtqNFeFFpkG/wfOx4nYEG5/NQl7s4oNJSLEd+f9L9YoPsiiPz4VGErcmQ3oS7w7rF6vRyP4NkvmpHyJfd0r0HWBuQnP5zoaV1+rc62kuSDXyzG/crQtuiaeXSpUvdmwhOUtgY39FaiYlrn+Y6bd0WJeGiTb8OOt+8rkgfUUu7P7TM3UW38U5HNL3e6+LOEHMZA8XLkhC8y12eGO1ANl4kV4YqBAO3L54HZgenogWuJHles7YzGeyt2FOWRU0Ik88EnJA1NyaFhTuaGK3pKVizoRH87yFsIDW3KgmJxD4eEUWFwijox5piIxCPLAZ/gKN2Qd2F9qv2Xck4OkHD6WVySOgDzweValGalAYFVp/34sy/Wc9lNPFd2SB75IJWbi8hytY9h8EEtTJorJy5WTHVAanbuex2LyeSvX23Fmrm/Eim6JA63yOhhEaQzLox4EcUyyVw6WGP4BHFG5acC1I3kAAAAASUVORK5CYII=')no-repeat;background-position: 0 3px;}
+/* Иконка сравнения товаров */
+#jshop_module_compare {background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAACzUlEQVRIiZ2XW4iNURTHf2fGGHchlxyKhjKlpiaNS4pEGiK38kZEU14ID5oyRUquD0IpigcaXkQKiZNLKRMPQ5I88DK5Jfc7R3vO/zj7fGt/5/v41eqcs9Z/r7339619OSQwAOgbsT6y2cBT4BWwjFIsqnc5quK6yRhPgXHAPmAk8CMS+63PJuA58BUYD9xWLNpZjQa5FbhreorhMJBPsE9AnWb5MkHrrD3UVdyj+WU8lp6e1ZioJZizh/EUOABkvXfqk9ejngTk9Ar6AzdiJpXXE9preknBRGkynhWZAdwB7gMLPX8mYm4SE/6n8xbglvGW0wvoZ7zlTAc6gVEmkkCnHt/kBF0S7cqzPkFXxhKveo+aaHrc8nyvPDdTFms31/QEdqp664wiHQeBN0CrBjEnTasGiRdpxO77HqNKZgTwAdgl5UPgSpqGF4Aub4meBN4BQ42yMts0+DFSbdLvhkqtGiXa4PmmyrfZqONxg/0CnPYUWU3kVGwr4Lwajo74O3TwpKVNg26K6M/Inw3lqa9Q9asUm2UilmrghQo5yhTl2WIiqlgXHGsihf3e1cUlE7GsVZ65JlKgQyus2ncO1/s5YeQldihxvYmU8wS4Z7wlmpWn2Xe2ar2HZl/E1cVPYL+JlFiq5ItNpIQ7rB4DV4ueQcBr4LiRWo4Ab4FhJgK1unA8MhFLiwba6Nb6SmCIKjanRNGbkhN/l24gsAA4FtHM1DJ+BlzXPhK6b3wGBuv7GvTOQjeYSpaL7OtVWt+V2oSsqypw4UhDbWR2mRTHcojulbAiMLIkmx9INk2v6V/y/N1ddweCcdZmui6xLqZNyMyGtz0g8s1dzzeaLi2rgY+B9r4dMq3EPOCcLprFBi7ZWVV5Wtwtyp2ibskW87g9xBXvcj9J2Xao22tvmTuU3B+PBzqiLwb+pMTh/oi47dsV5jf9dvvDZU3QTQqAP+439fvDbCwnAAAAAElFTkSuQmCC')no-repeat center}
+/* Cart Icon */
+.wrapper_cart_quantity_products{background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAAFwUlEQVRIibVWbUxTVxh+7+0tLfSDUoqmlkIbTIMJigLpnOLcD+LQLYhbsh/TqQm6xGjcj/EHdT/MsiZNo4lLDNH9ZBnMGHSRKBKihpCwbpQqIMOQwSofTWmBpu0thd577vKetU5pt2wLPMnJvec9H+/Heb+YM2fOOG/cuPEZwzArDMNIACCJoqgwmUzzHR0dx4xGo+fSpUvQ3d0NmzZtgvWAJEmwsrICLS0twN25c6eREKJbe+/MzIz+8uXLTYFAwBMKhcBoNAIhhB5mGIbuwX/E63P8X/vNBqTT8eTJk7fa2to+WF1dFWQyGSkoKIg8fPjwk7GxMbtCoZg0m83fchynTDNLIT1h/mb+j0hZQNHS0tLN8DwPXV1dsLS0BIlEAhoaGnB+4fz581+/rt16A4Ww2WwjXCQSgWAwCLFYDFAYt9sNGo1mmGXZVybfKExOThrYtJaCIEBZWRkVRKvVPrXZbC83jHMKCoVihUMN0fT79+8Hu91OvVOj0cy4XK5ZACjJOLXO4HJycmB1dRVevHhBzR2Px9ECYDAYfgOAtzdcADR9IBCAgYEBwHdPh4der38qk8mOiaKYcWhdBRgaGoIdO3bA3r17qdMh5HI5RKNRb3t7e1IURXnGqfUUoKSkBLZt2/aGtysUCgiHw2Mcx/HJZDIjSa0r0OnWDhQmFovJKyoqPKmksyFDpVJNce3t7Rn6oA/k5uYmd+3a5R4dHa3K2LBOEARBxqK51w6O42gk2O32nzfS+oQQjjty5EjGAqT8QK/Xj2Qs/E9guKvV6mReXt6SVqtdFEWRP3r0aAd38+bNrDeiADzP+61W68upqal/lZCwmBUXF8/n5+fP6XQ6v9FoDJhMJn80Gp3t7e0NVFVVBUtLS4Pl5eXzKpVq8fDhw8BNT09nXJQyDxQXF89VV1cPpgQgOTk5PCEkptfrp00m00xZWdns5s2bp7dv3z5rNBqnHzx4sPDo0aNITU1N1Gq1Rmtqasju3btpkuvs7ITl5WWa6MLhMGCJxy93/PjxDOaQqlZYGxKJxMDt27c/ZFk20dPT85Hb7e69du0alJSUSNgjYJNSVFSEz4UpnPpPNBoFv98PIyMjgMUOmWKeQec2GAyQFgqfhdu6dWsG85Q5aUKKx+NanOt0utVkMumLx+PSnj176BPNz89TRoODg4AZU6VS0XqCqX1hYYFm2P7+fpph0amx2uKaxWKB0tJSWgA5LETZoNPpYGhoqMLhcDTjMsuyYmdn58c+n29Zo9FweBGkQhY1SVlN4nmewdZOkiQGlWBZFmOewfwiCIJcEIRFnud/IIQsUAEeP36chT1Afn4+eDye90VRzMV5KBQqbG1t/Spj438ECtzb21smSdIXeJLDZiQbsC8ghDwvLy8fn5iYsLAsKxQVFc0nEgmDVqtlCCHSmpaM0tDcKTqlRSIRolQqw6FQyCAIgqqysvL3AwcOePDJ0M+4nTt3ZmH/pw9UV1d3BYPBuitXrnyOB06ePNlWWVnpun//vlKj0ciUSmW68aTMpL8KChWAEEIaGxsT/f39TRcvXryAC3a7vcfpdH6PW+nZZ8+eZTBHFBQUoA80NDY2/pimyeXyxN27d9+rra3tczgcMDExQSMgXUXTXTDOMcwOHjyIjY6hvr7+F5/PZ4FUfjl79uynkiR9Ry1w7969DOYItVqNoVL7Oi2ZTCq9Xu+7hw4d6mtuboarV6/C3NzcKydEoKUw9FABr9cLfX1976SZQ6r4Xb9+vQ4AvqM+UF9fn1WAwsJCDKGh1tbWN+hWq/U5fjGe6+rqwOl0Io1qnbbEiRMnaIlHf/D7/b/eunUrIQiCEtdQ2NOnT/+UfgKZy+WizNYOjAKbzTaqUqkiw8PDpWq1OuRwOL48depUG4YPAmN5cXERxsfHsXpSATARNTU1wZYtW6gVzGZzyGq1Tno8HlteXl743Llzzn379n1jNpvBYrHAHz38/QLjxYaGAAAAAElFTkSuQmCC') center no-repeat;/* background-position: 0 3px; */}
+
+/* - Старая цена */
+.jshop_list_product .jshop .old_price {margin: -13px 0 0 0px;padding: 0;position: absolute;}
+.jshop_price .old_price span {font-size: 15px;color: red;text-decoration: line-through;}
+/* - Быстрый заказ */
+.quickorder-on .quickorder:before {content: 'Быстрый заказ';}
+
+/* Product Css для кнопки запрос цены */
+.jshop_price .b1c, .jcetooltip .b1c {margin: 0 auto; padding: 0 10px; }
+.jcetooltip {text-align: center;margin-top: 13px;}
+#my_opisanie .b1c{cursor: pointer;}
+#my_opisanie_fon .extra_fields {padding: 0; line-height: 0; display: none; }
+/* Cart Icon */
+#ajax_cart_with_related{
+	margin: 0 0 0 8px;
+}
+.wrapper_cart_quantity_products{
+    background-position: 6px 5px;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.wishlist_view .count-ptoduct, 
+.count_compare, 
+#ajax_cart_with_related #jshop_quantity_products{
+    background: #be1e2d;
+    line-height: 22px;
+    width: 22px;
+    height: 22px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    z-index: 1000;
+}
+.count_compare {
+	top: -4px;
+	right: -8px;
+}
+.wishlist_view .count-ptoduct{
+	top: -4px;
+	right: 3px;
+}
+#ajax_cart_with_related #jshop_quantity_products  {
+	top: 6px;
+	right: -13px;
+}
+#ajax_cart_with_related[data-count-cart="0"]  #jshop_quantity_products{
+	display: none;
+}
+#jshop_module_compare[data-count-compare="0"] .count_compare{
+	display: none;
+}
+

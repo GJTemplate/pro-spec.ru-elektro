@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "Montserrat";
     src: local('Montserrat Hairline'), local('Montserrat-Hairline'), url('/style/montserrathairline.woff2') format('woff2'), url('/style/montserrathairline.woff') format('woff'), url('/style/montserrathairline.ttf') format('truetype');
@@ -30,13 +29,8 @@
     font-style: normal;
 }
 
-html {
-    border: 0 none;
-    font-size: 100.01%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+
+
 table {
     border-collapse: separate;
     border-spacing: 0;
@@ -55,16 +49,13 @@ blockquote::before, blockquote::after, q::before, q::after {
 blockquote, q {
     quotes: "" "";
 }
-a img {
-    border: medium none;
-}
+
 :focus {
     outline: 0 none;
 }
 #content {
     min-height: 100%;
     position: relative;
-    /*background: url("/templates/elektro/images/sm_full1.gif") repeat;*/
     margin: 0;
 }
 * html #content {
@@ -74,19 +65,7 @@ a img {
 	margin: 0 auto;
 	padding: 100px 0 20px;
 }
-html {
-}
-body {
-    background: RGB(244, 245, 248) none repeat scroll 0% 0%;
-    color: #222;
-    font-family: 'Montserrat',arial;
-    font-size: 75%;
-    height: 100%;
-    line-height: 1.5;
-    margin: 0;
-    min-width: 100%;
-	font-weight: 500;
-}
+
 h1, h2, h3, h4, h5, h6 {
     color: #111;
     font-weight: normal;
@@ -120,6 +99,7 @@ h6 {
     font-size: 1em;
     font-weight: bold;
 }
+
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
     margin: 0;
 }
@@ -143,10 +123,7 @@ p .right {
 a:focus, a:hover {
     color: #09f;
 }
-a {
-    color: #113b5c;
-    text-decoration: underline;
-}
+
 blockquote {
     color: #666;
     font-style: italic;
@@ -211,10 +188,7 @@ table {
 th {
     font-weight: bold;
 }
-thead th {
-	/*background: transparent linear-gradient(#7CBADC, #64A2C3) repeat scroll 0px 0px;
-	color: #fff;*/
-}
+thead th {}
 th, td, caption {
     padding: 4px 10px 4px 5px;
 }
@@ -224,6 +198,7 @@ tfoot {
 caption {
     background: #eee none repeat scroll 0 0;
 }
+
 .small {
     font-size: 0.8em;
     line-height: 1.875em;
@@ -326,6 +301,7 @@ form.inline {
 form.inline p {
     margin-bottom: 0;
 }
+
 .error, .alert, .notice, .success, .info {
     border: 2px solid #ddd;
     margin-bottom: 1em;
@@ -363,21 +339,24 @@ form.inline p {
 .info a {
     color: #205791;
 }
-.container {
-    margin: 0 auto;
-    min-width: 700px;
-	max-width: 1600px;
-	position:relative;
-}
+
+
 .showgrid {
     background: rgba(0, 0, 0, 0) url("src/grid.png") repeat scroll 0 0;
 }
-.column, .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18, .span-19, .span-20, .span-21, .span-22, .span-23, .span-24 {
+.column , .span-1, .span-2, .span-3, .span-4, .span-5,
+
+.span-6,
+.span-7,
+.span-8,
+.span-9,
+.span-10,
+
+.span-11, .span-12, .span-13, .span-14, .span-15,
+.span-16, .span-17, .span-18, .span-19, .span-20,
+.span-21, .span-22, .span-23, .span-24 {
     float: left;
     margin-right: 10px;
-}
-.last {
-    margin-right: 0;
 }
 .span-1 {
     width: 30px;
@@ -396,11 +375,6 @@ form.inline p {
 }
 .span-6 {
     width: 230px;
-}
-.span-7 {
-    float: left;
-    line-height: 1.2;
-    padding: 5px 0 0 10px;
 }
 .span-8 {
     width: 310px;
@@ -426,8 +400,8 @@ form.inline p {
 .span-15 {
     width: 590px;
 }
-.span-16 {
-}
+
+
 .span-17 {
     width: 670px;
 }
@@ -453,7 +427,27 @@ form.inline p {
     margin-right: 0;
     width: 1250px;
 }
-input.span-1, textarea.span-1, input.span-2, textarea.span-2, input.span-3, textarea.span-3, input.span-4, textarea.span-4, input.span-5, textarea.span-5, input.span-6, textarea.span-6, input.span-7, textarea.span-7, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, textarea.span-10, input.span-11, textarea.span-11, input.span-12, textarea.span-12, input.span-13, textarea.span-13, input.span-14, textarea.span-14, input.span-15, textarea.span-15, input.span-16, textarea.span-16, input.span-17, textarea.span-17, input.span-18, textarea.span-18, input.span-19, textarea.span-19, input.span-20, textarea.span-20, input.span-21, textarea.span-21, input.span-22, textarea.span-22, input.span-23, textarea.span-23, input.span-24, textarea.span-24 {
+input.span-1, 
+textarea.span-1, 
+input.span-2, 
+textarea.span-2, 
+input.span-3, 
+textarea.span-3, 
+input.span-4, 
+textarea.span-4, 
+input.span-5, textarea.span-5, input.span-6, 
+textarea.span-6, input.span-7, textarea.span-7, 
+input.span-8, textarea.span-8, input.span-9, 
+textarea.span-9, input.span-10, textarea.span-10, 
+input.span-11, textarea.span-11, input.span-12, 
+textarea.span-12, input.span-13, textarea.span-13, 
+input.span-14, textarea.span-14, input.span-15, 
+textarea.span-15, input.span-16, 
+textarea.span-16, input.span-17, textarea.span-17, 
+input.span-18, textarea.span-18, input.span-19, 
+textarea.span-19, input.span-20, textarea.span-20, 
+input.span-21, textarea.span-21, input.span-22, textarea.span-22, 
+input.span-23, textarea.span-23, input.span-24, textarea.span-24 {
     border-left-width: 1px;
     border-right-width: 1px;
     padding-left: 5px;
@@ -531,9 +525,7 @@ input.span-23, textarea.span-23 {
 input.span-24, textarea.span-24 {
     width: 938px;
 }
-.append-1 {
-    width: 99%;
-}
+
 .append-2 {
     padding-right: 80px;
 }
@@ -751,7 +743,11 @@ input.span-24, textarea.span-24 {
 .pull-24 {
     margin-left: -960px;
 }
-.pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10, .pull-11, .pull-12, .pull-13, .pull-14, .pull-15, .pull-16, .pull-17, .pull-18, .pull-19, .pull-20, .pull-21, .pull-22, .pull-23, .pull-24 {
+.pull-1, .pull-2, .pull-3, .pull-4, .pull-5, 
+.pull-6, .pull-7, .pull-8, .pull-9, .pull-10, 
+.pull-11, .pull-12, .pull-13, .pull-14, .pull-15, 
+.pull-16, .pull-17, .pull-18, .pull-19, .pull-20, 
+.pull-21, .pull-22, .pull-23, .pull-24 {
     float: left;
     position: relative;
 }
@@ -827,7 +823,12 @@ input.span-24, textarea.span-24 {
 .push-24 {
     margin: 0 -960px 1.5em 960px;
 }
-.push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12, .push-13, .push-14, .push-15, .push-16, .push-17, .push-18, .push-19, .push-20, .push-21, .push-22, .push-23, .push-24 {
+.push-1, .push-2, .push-3, .push-4, 
+.push-5, .push-6, .push-7, .push-8, 
+.push-9, .push-10, .push-11, .push-12, 
+.push-13, .push-14, .push-15, .push-16, 
+.push-17, .push-18, .push-19, .push-20, 
+.push-21, .push-22, .push-23, .push-24 {
     float: left;
     position: relative;
 }
@@ -844,21 +845,7 @@ div.append-bottom, .append-bottom {
 }
 hr {
 	display:none;
-}/*
-    background: #ddd none repeat scroll 0 0;
-    border: medium none;
-    clear: both;
-    color: #ddd;
-    float: none;
-    height: 1px;
-    margin: 0 0 17px;
-    width: 100%;
 }
-hr.space {
-    background: #fff none repeat scroll 0 0;
-    color: #fff;
-    visibility: hidden;
-}*/
 .clearfix::after, .container::after {
     clear: both;
     content: " ";
@@ -867,9 +854,7 @@ hr.space {
     overflow: hidden;
     visibility: hidden;
 }
-.clearfix, .container {
-    display: block;
-}
+
 .clear {
     clear: both;
 }

@@ -27,7 +27,11 @@ print $this->_tmp_maincategory_html_start;
         <?php foreach ($this->categories as $k => $category) : ?>
             <?php if ($k % $this->count_category_to_row == 0) : ?>
                 <div class = "row-fluid">
-            <?php endif; ?>
+            <?php endif;
+
+
+
+            ?>
         
             <div class = "sblock<?php echo $this->count_category_to_row;?> jshop_categ category">
                 <div class="sblock2 image">

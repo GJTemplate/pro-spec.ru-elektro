@@ -1,63 +1,50 @@
 
-#top_menu .od.menu li {
-    float: left;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-#top_menu .od.menu li ul li {
-    display: block;
-    float: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-#top_menu .od.menu li:hover > ul {
-    display: block;
-}
+
+
+
 #top_menu .od.menu li ul {
-    background: #113b5c none repeat scroll 0 0;
-    display: none;
-    list-style-type: none;
-    min-width: 300px;
-    padding: 0;
-    position: absolute;
-    top: 43px;
-    z-index: 10000;
+    /* background: #113b5c none repeat scroll 0 0; */
+    /* display: none; */
+    /* list-style-type: none; */
+    /* min-width: 300px; */
+    /* padding: 0; */
+    /* position: absolute; */
+    /* top: 43px; */
+    /* z-index: 10000; */
 }
 #top_menu .od.menu li a {
-    border-right: 1px solid #dadada;
-    color: #000000;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    text-transform: uppercase;
+    /* border-right: 1px solid #dadada; */
+    /* color: #000000; */
+    /* cursor: pointer; */
+    /* display: block; */
+    /* font-size: 14px; */
+    /* text-transform: uppercase; */
 }
 #top_menu .od.menu li ul li a {
-    border-right: medium none;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    padding: 0 15px;
-    text-transform: none;
-    width: auto;
+    /* border-right: medium none; */
+    /* color: #fff; */
+    /* cursor: pointer; */
+    /* display: block; */
+    /* font-size: 14px; */
+    /* padding: 0 15px; */
+    /* text-transform: none; */
+    /* width: auto; */
 }
 #top_menu .od.menu li a.selected {
     color: #555;
     cursor: default;
 }
 #top_menu .od.menu li a, #top_menu .od.menu li a:focus, #top_menu .od.menu li a:hover {
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 #top_menu .od.menu li a:hover {
-    color: red;
-    text-decoration: underline;
+    /* color: red; */
+    /* text-decoration: underline; */
 }
 #top_menu .od.menu li a:focus, #top_menu .od.menu li a:hover, #top_menu .od.menu li a:active {
-    color: #fff;
-    outline: medium none;
-    text-decoration: none;
+    /* color: #fff; */
+    /* outline: medium none; */
+    /* text-decoration: none; */
 }
 #top_menu .od.menu li.label {
     font-weight: normal;
@@ -111,18 +98,4 @@
     padding: 0;
     width: 100%;
 }
-#current, .selected {
-}
-/*.elektro-top-left .joomla-nav a {
-    border-bottom: 1px dashed #dadada;
-    color: #333;
-    display: block;
-    font-size: 14px;
-    line-height: 40px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.elektro-top-left .joomla-nav a:hover {
-    color: #113b5c;
-    text-decoration: underline;
-}*/
+  

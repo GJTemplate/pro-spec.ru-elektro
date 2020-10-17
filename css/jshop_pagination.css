@@ -1,0 +1,71 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 13.10.2020 03:40
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+a:focus, a:hover {
+    color: #09f;
+}
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.jshop_pagination {
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pagination {
+    text-align: center;
+    clear: both;
+}
+.pagination_top {
+	display:none;
+    float: right;
+    padding: 12px   0px 0 0;
+    text-align: right;
+}
+.pagin_nam a, .pag_end {
+    /*background: rgba(0, 0, 0, 0) url("/components/com_jshopping/images/page_navi.png") no-repeat scroll center center;*/
+    border-radius: 5%;
+    color: #333333;
+    margin-left: 5px;
+    padding: 5px 10px;font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    /*! border: 1px solid #ccc; */
+}
+.pag_end a {
+    color: #2786da;
+    font-family: tahoma;
+    margin-left: 5px;
+    text-decoration: none;
+}
+.pag_end {
+    font-family: tahoma;
+    margin-left: 5px;
+}
+.pag_end .noactive {
+    border-radius: 5%;
+    color: #333333;
+    margin-left: 5px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background: none;
+}
+.pagination .noactive {
+	border-radius: 10%;
+	color: #fff;
+	margin-left: 5px;
+	padding: 5px 10px;
+	text-decoration: none;
+	background: rgb(255, 143, 36);
+}

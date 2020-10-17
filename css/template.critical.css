@@ -1,0 +1,245 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 09.10.2020 19:11
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+.container{ 
+    min-width: 683px;
+}
+/* #top_menu-new .joomla-nav li ul{
+	-moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+} */
+.ajax_cart_wl.min_view.type_view.wishlist_view {
+    /* background: url(/images/my-img/wishlist.png)no-repeat; */
+    /* width: 40px; */
+    /* height: 30px; */
+    /* margin: 5px 0; */
+}
+#header_elektro {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+    background: RGB(244, 245, 248) none repeat scroll 0% 0%;
+    top: 0;
+}
+#back-top {
+    padding: 23px 0;
+    float: left;
+}
+.mycategoryMenu {
+    display: flex;
+    width: 137px;
+    height: 25px;
+    color:#fff;
+    text-align: center;
+    cursor: pointer;
+    background: #0053b9;
+    padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: background 1.3s;
+    font-size: 16px;
+}
+.mycategoryMenu::before {
+    content: "▼";
+    display: block;
+    transition: 0.5s;
+    color: #fff;
+    right: 44px;
+    font-size: .65em;
+    line-height: 8px;
+    top: 26px;
+}
+
+.wrapper_cart_quantity_products {
+    /* width: 40px; */
+    /* padding: 0 10px; */
+    /* background: url(/templates/elektro/img/cart_mini.png) center no-repeat; */
+    /* min-height: 40px; */
+}
+
+/* Иконка список пожеланий */
+.ajax_cart_wl.min_view.type_view.wishlist_view {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAbCAYAAACEP1QvAAADGklEQVRIib3WWaiVVRQH8N93tOCKNEAeKhsgKioPZA9CiFDkQGYZNomElamZhpeoKHoOSTCieqhosnooAqOgHsqgUjDEoS4NZAqVQxqahdBccmJ519Gv+51j56q3PxzY59tr7/8a9hqKRqOhDcZiBibiAvRgN9bhTbyDn0rHTsBkXIdLcSp+x2a8jzewEc1+8eaB30DyU/Awbkctv+3Fr7nXk9+24l68jml4DOfm3h+paE+eabG9ggfwXTvysSlwIXbhWbyd6z8xAhfjDlyF37AW4zAS7+Fp9OFnHJcemIoFOANfYxbNdWXy0ViNc/AhbsbOajQOYjaeTNJQohfPVaQOoY4X0ks7aU6g+c2wen0UinDbFRnLsGpfHjsZ16fle0uXfdof/+ZlFLfitQrdv/FLenXMoTdRrCgajYvGU1uDPbikPyYHMAdLcBpuw0uVK1vvR1HZ6YCw9OMMwaQatekp92iJ+JZ00yMZkv+yrFvsyQcdmDkcV+ef1SVXP4S7Mq7HGmvzvimRTudhezyA/HgNzsLKISCW3o1UPT3Ij88H9VduRiGJR7StcuzYYD/+xvBw+/c4myJy8gdsyt9Q4aQsPvtqNFeFFpkG/wfOx4nYEG5/NQl7s4oNJSLEd+f9L9YoPsiiPz4VGErcmQ3oS7w7rF6vRyP4NkvmpHyJfd0r0HWBuQnP5zoaV1+rc62kuSDXyzG/crQtuiaeXSpUvdmwhOUtgY39FaiYlrn+Y6bd0WJeGiTb8OOt+8rkgfUUu7P7TM3UW38U5HNL3e6+LOEHMZA8XLkhC8y12eGO1ANl4kV4YqBAO3L54HZgenogWuJHles7YzGeyt2FOWRU0Ik88EnJA1NyaFhTuaGK3pKVizoRH87yFsIDW3KgmJxD4eEUWFwijox5piIxCPLAZ/gKN2Qd2F9qv2Xck4OkHD6WVySOgDzweValGalAYFVp/34sy/Wc9lNPFd2SB75IJWbi8hytY9h8EEtTJorJy5WTHVAanbuex2LyeSvX23Fmrm/Eim6JA63yOhhEaQzLox4EcUyyVw6WGP4BHFG5acC1I3kAAAAASUVORK5CYII=)no-repeat center;
+    background-position: 5px 6px;
+    /* border: 1px solid; */
+}
+#jshop_module_compare {
+	/* background: #ff7900; */
+	/* padding: 8px 30px 0 0; */
+	/* max-height: 30px; */
+	/* transition: 0.5s; */
+	/* padding-right: 12px; */
+	/* margin: 2px 0px 0; */
+}
+#jshop_module_compare , 
+.ajax_cart_wl.min_view.type_view.wishlist_view {
+	width: 40px;
+	height: 35px;
+	margin: 0px 15px 0 0;
+	cursor: pointer;
+}
+
+
+/* Иконка сравнения товаров */
+#jshop_module_compare {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAYAAAAdx42aAAACzUlEQVRIiZ2XW4iNURTHf2fGGHchlxyKhjKlpiaNS4pEGiK38kZEU14ID5oyRUquD0IpigcaXkQKiZNLKRMPQ5I88DK5Jfc7R3vO/zj7fGt/5/v41eqcs9Z/r7339619OSQwAOgbsT6y2cBT4BWwjFIsqnc5quK6yRhPgXHAPmAk8CMS+63PJuA58BUYD9xWLNpZjQa5FbhreorhMJBPsE9AnWb5MkHrrD3UVdyj+WU8lp6e1ZioJZizh/EUOABkvXfqk9ejngTk9Ar6AzdiJpXXE9preknBRGkynhWZAdwB7gMLPX8mYm4SE/6n8xbglvGW0wvoZ7zlTAc6gVEmkkCnHt/kBF0S7cqzPkFXxhKveo+aaHrc8nyvPDdTFms31/QEdqp664wiHQeBN0CrBjEnTasGiRdpxO77HqNKZgTwAdgl5UPgSpqGF4Aub4meBN4BQ42yMts0+DFSbdLvhkqtGiXa4PmmyrfZqONxg/0CnPYUWU3kVGwr4Lwajo74O3TwpKVNg26K6M/Inw3lqa9Q9asUm2UilmrghQo5yhTl2WIiqlgXHGsihf3e1cUlE7GsVZ65JlKgQyus2ncO1/s5YeQldihxvYmU8wS4Z7wlmpWn2Xe2ar2HZl/E1cVPYL+JlFiq5ItNpIQ7rB4DV4ueQcBr4LiRWo4Ab4FhJgK1unA8MhFLiwba6Nb6SmCIKjanRNGbkhN/l24gsAA4FtHM1DJ+BlzXPhK6b3wGBuv7GvTOQjeYSpaL7OtVWt+V2oSsqypw4UhDbWR2mRTHcojulbAiMLIkmx9INk2v6V/y/N1ddweCcdZmui6xLqZNyMyGtz0g8s1dzzeaLi2rgY+B9r4dMq3EPOCcLprFBi7ZWVV5Wtwtyp2ibskW87g9xBXvcj9J2Xao22tvmTuU3B+PBzqiLwb+pMTh/oi47dsV5jf9dvvDZU3QTQqAP+439fvDbCwnAAAAAElFTkSuQmCC')no-repeat center;
+    background-position: 3px 6px;
+    /* border: 1px solid; */
+}
+.mobileButton {
+    position: absolute;
+    right: 0;
+    background: #e5efff;
+    padding: 0 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.joomla-header.span-16.append-1 {
+    display: flex;
+    justify-content: space-between;
+}
+.header-left{
+    flex-grow: 1;
+    margin: 0 20px 0 0;
+    width: 300px;
+}
+#elektro_logo {
+    float: left;
+    margin: 0px 20px 0 20px;
+}
+#search {
+    /* float: left; */
+    padding: 23px 0 0 0px;
+    /* width: 0px; */
+    box-sizing: border-box;
+    margin: 0 20px 0 0;
+    flex-grow: 2;
+    /* max-width: 400px; */
+}
+.header-right{
+    flex-grow: 1;
+    margin: 0 -10px 0 0;
+}
+.js-rz-city{
+    float: right;
+    margin: 5px 5px 0 0;
+}
+.js-rz-city a {
+	cursor:pointer;
+	transition: color .3s;
+}
+.js-rz-city a:hover{
+	color: #be1e2d;
+}
+#elektro_phone {
+    float: left;
+    padding: 10px 0px 0 0;
+    width: 50%;
+    text-align: center;
+}
+#elektro_phone a {
+    text-decoration: none;
+}
+#elektro_email {
+    /* text-align: right; */
+}
+.cart-my{
+    width: 50%;
+    float: right;
+    margin: 0 0px 0 0;
+}
+.joomla-cart {
+    
+}
+.joomla-cart.span-7.last {
+    /* max-height: 46px; */
+    position: relative;
+    margin: 20px 12px 4px 0;
+    padding: 0;
+    float: right;
+}
+.elektro-cart-mod {
+    display: flex;
+    flex-direction: row-reverse;
+    /* flex-grow: 0; */
+    margin: 10px 0 0 0;
+}
+#elektro-topmenu{
+	background-color: #fff;
+	margin: 0 auto;
+	overflow: visible;
+	border-bottom: 3px solid #f4f5f8;
+}
+
+#top_menu-new .joomla-nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    min-width: 1174px;
+    min-height: 59px;
+}
+
+.breadcrumbs {
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	padding-bottom: 20px;
+	min-width: 700px;
+	max-width: 1600px;
+}
+
+.breadcrumbs li, .bottom_pro .breadcrumbs li {
+    float: left;
+    line-height: 24px;
+    list-style: outside none none;
+    padding: 0 0px 0 0;
+    text-decoration: none;
+    color: #005bff;
+    font-size: 16px;
+    position: relative;
+    margin-right: 10px;
+}
+.breadcrumbs li a {
+    text-decoration: none;
+}
+.breadcrumbs ul li:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #8e8e8e;
+    border-bottom: none;
+    border-left: none;
+    top: 8px;
+    right: -6px;
+    -moz-transform: rotate(43deg); /* Для Firefox */
+    -ms-transform: rotate(43deg); /* Для IE */
+    -webkit-transform: rotate(43deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(43deg); /* Для Opera */
+    transform: rotate(43deg);
+}
+
+.breadcrumbs ul li:last-child:after {
+    display: none;
+}

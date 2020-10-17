@@ -1,49 +1,98 @@
-<?php defined( '_JEXEC' ) or die(); ?>
+<?php use Joomla\CMS\Factory;
+
+defined( '_JEXEC' ) or die(); ?>
 <?php $product = $this->product?>
 <?php include(dirname(__FILE__)."/load.js.php");
+
+$app = Factory::getApplication() ;
+$doc= Factory::getDocument();
+
+
+$template = $app->getTemplate(true);
+
 
 
 
 ?>
+<!-- Управление слайдерами на странице товара -->
+<script>
+    setTimeout(function () {
+        var $ = jQuery;
+        $("body").on('click', '[class$="-carousel"]>[class$="-button-left"],[class$="-carousel"]>[class$="-button-right"]', function () {
+            var time = 600;
+            var $parent = $(this).parent()
+            var $items = $(this).parent().find('[class$="-wrapper"]>div');
+            var directionClass = $(this).attr('class');
+
+            var $blocks = $parent.find('[class*="carousel-block"]')
+            var $firstBlock = $blocks.eq(0);
+            var $lastBlock = $blocks.eq(-1);
+            var cssWidth = $firstBlock.outerWidth(true);
+
+            if (directionClass.indexOf('left') !== -1) {
+                $lastBlock.clone().prependTo($items);
+                $items.css({"left": "-" + cssWidth + "px"});
+                $items.animate({left: "0px"}, time, function () {
+                    $lastBlock.remove();
+                });
+            } else {
+                $firstBlock.clone().appendTo($items);
+                $items.animate({left: "-" + cssWidth}, time, function () {
+
+                    $firstBlock.remove();
+                    $items.css({"left": "0px"});
+                });
+            }
+        });
+    }, 500);
+</script>
 <div class="jshop productfull" itemscope itemtype="https://schema.org/Product">
-<!--верх-->
-<div  class="b1c-good" >
-<div id="top_descriptin">
-  <div class="oferta_top">
-	       <div  class="offerta">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta1">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta1';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta2">
-		   <?php 
-		$document   = & JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'offerta2';
-        echo $renderer->render($position, $options, null);
-        ?>
-		   </div>
-		   <div  class="offerta3"><?php print $this->_tmp_product_html_after_my_buttons;?><?php print $this->_tmp_product_html_my_buttons;?></div>
-		   <div  class="offerta4"><?php if ($this->enable_wishlist){?>
-                    <input type="submit" class="button wishlist" value="<?php echo _JSHOP_ADD_TO_WISHLIST?>" onclick="jQuery('#to').val('wishlist');" />
-                <?php }?></div>
-		   <div style="float:left; margin: 20px;" id="pdf1"></div>
-		   
-	  </div>
+    <!--верх-->
+    <div  class="b1c-good" >
+        <div id="top_descriptin">
+            <?= \Joomla\CMS\Layout\LayoutHelper::render('product.oferta_top' , [ 'self'=> $this , 'template' => $template ] );?>
+
+
+
+
+<!--  <div class="oferta_top">-->
+<!--	       <div  class="offerta">-->
+<!--		   --><?php //
+//		$document   = & JFactory::getDocument();
+//		$renderer   = $document->loadRenderer('modules');
+//        $options    = array('style' => 'xhtml');
+//        $position   = 'offerta';
+//        echo $renderer->render($position, $options, null);
+//        ?>
+<!--		   </div>-->
+<!--		   <div  class="offerta1">-->
+<!--		   --><?php //
+//		$document   = & JFactory::getDocument();
+//		$renderer   = $document->loadRenderer('modules');
+//        $options    = array('style' => 'xhtml');
+//        $position   = 'offerta1';
+//        echo $renderer->render($position, $options, null);
+//        ?>
+<!--		   </div>-->
+<!--		   <div  class="offerta2">-->
+<!--		   --><?php //
+//		$document   = & JFactory::getDocument();
+//		$renderer   = $document->loadRenderer('modules');
+//        $options    = array('style' => 'xhtml');
+//        $position   = 'offerta2';
+//        echo $renderer->render($position, $options, null);
+//        ?>
+<!--		   </div>-->
+<!--		   <div  class="offerta3">-->
+<!--               --><?php //print $this->_tmp_product_html_after_my_buttons;?>
+<!--               --><?php //print $this->_tmp_product_html_my_buttons;?>
+<!--           </div>-->
+<!--		   <div  class="offerta4">--><?php //if ($this->enable_wishlist){?>
+<!--                    <input type="submit" class="button wishlist" value="--><?php //echo _JSHOP_ADD_TO_WISHLIST?><!--" onclick="jQuery('#to').val('wishlist');" />-->
+<!--                --><?php //}?><!--</div>-->
+<!--		   <div style="float:left; margin: 20px;" id="pdf1"></div>-->
+<!--		   -->
+<!--	  </div>-->
 <div style="width:100%; clear:both; border-bottom: 1px dashed #eeeeee;"></div>
 <form name="product" method="post" action="<?php print $this->action?>" enctype="multipart/form-data" autocomplete="off">
     
@@ -164,14 +213,25 @@
 	
             </span><?php if($product->product_id==42162) {?>
 				    <div class="made-in"><img src ="/images/made_in_russian.png"></div>
-				<?php }?>
+				<?php }
+
+/*$app = \JFactory::getApplication() ;
+echo'<pre>';print_r( $app->input );echo'</pre>'.__FILE__.' '.__LINE__;
+die(__FILE__ .' '. __LINE__ );*/
+            /*[option] => com_jshopping
+            [controller] => product*/
+
+
+
+
+				?>
 			
 	    <div class="jshop_img_description">
             <?php print $this->_tmp_product_html_before_image_thumb;?>
             <?php if ( (count($this->images)>1) || (count($this->videos) && count($this->images)) ) {?>
 			<span id='list_product_image_thumb'>
                 <?php foreach($this->images as $k=>$image){?>
-                    <img class="jshop_img_thumb" src="<?php print $this->image_product_path?>/<?php print $image->image_thumb?>" alt="<?php print htmlspecialchars($image->_title)?>" title="<?php print htmlspecialchars($image->_title)?>" onclick="showImage(<?php print $image->image_id?>)" />
+                    <img width="40" class="jshop_img_thumb" src="<?php print $this->image_product_path?>/<?php print $image->image_thumb?>" alt="<?php print htmlspecialchars($image->_title)?>" title="<?php print htmlspecialchars($image->_title)?>" onclick="showImage(<?php print $image->image_id?>)" />
                 <?php }?>
              
 			 <?php }?>
@@ -236,9 +296,10 @@
 		 </div> 
 		</div>
 	</div>
-		<?php if ($this->product->_label_name == 'Товара нет в наличии'){?>
-        <div class="deliverytime" style="color:#999999; font-size:24px;"><?php print 'Товара нет в наличии'?></div>
-		 <div style="font-size: 16px; margin: 10px 0px; text-decoration: underline;">
+		<?php
+        if ($this->product->_label_name == 'Товара нет в наличии'){?>
+            <div class="deliverytime" style="color:#999999; font-size:24px;"><?php print 'Товара нет в наличии'?></div>
+		    <div style="font-size: 16px; margin: 10px 0px; text-decoration: underline;">
 		 <?php
             $table_product = JTable::getInstance('product', 'jshop');
             $table_product->load($product->product_id);
@@ -249,58 +310,88 @@
             print '<a href="'.SEFLink('index.php?option=com_jshopping&controller=category&task=view&category_id='.$table_category->category_id, 1).'">'.'Просмотреть другие товары в разделе '.$category_name.'</a>';
         ?>
 		</div>
-    <?php }?>
-    <?php if ($product->product_old_price > 0 && $product->product_old_price > $product->product_price){?>
-    <div class="old_prices">
-        <span class="old_priceL">Старая цена:</span><span class="old_price" id="old_price"><?php print formatprice($this->product->product_old_price)?></span>
-    </div>
-    <?php }?>
-    
-    <?php if ($this->product->product_price_default > 0 && $this->config->product_list_show_price_default){?>
-        <div class="default_price"><span id="pricedefault"><?php print formatprice($this->product->product_price_default)?></span></div>
-    <?php }?>        
-    
-
-	<?php if ($product->product_price !=0){?>
-	<div class="prod_price">
-        <div style="width: 100%;">
-		<div class="top_block_price"><span class="block_priceL">Ваша цена:</span><span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" id="block_price"><span itemprop="price"><?php print formatprice($this->product->getPriceCalculate())?><?php print $this->product->_tmp_var_price_ext;?></span><span><meta itemprop="priceCurrency" content="RUB"></span></span>
-		</div>
-						<?php if ($this->product->product_is_add_price){?>
-     <div class="price_prod_qty_list">
-	<?php foreach($this->product->product_add_prices as $k=>$add_price){?>
-	<div>
-	<?php echo _JSHOP_PRICE_FOR_QTY?>
-    	<span class="qty_from" <?php if ($add_price->product_quantity_finish==0){?>class="collspan3"<?php } ?>>
-			<?php if ($add_price->product_quantity_finish==0) echo _JSHOP_FROM?>
-			<?php print $add_price->product_quantity_start?> <?php print $this->product->product_add_price_unit?>
-        </span>
-		<?php if ($add_price->product_quantity_finish > 0){?>
-		<span class="qty_line"> - </span>
-		<?php } ?>
-		<?php if ($add_price->product_quantity_finish > 0){?>
-		<span class="qty_to">
-			<?php print $add_price->product_quantity_finish?> <?php print $this->product->product_add_price_unit?>
-		</span>
-		<?php } ?>
-		<span class="qty_price">            
-			<span id="pricelist_from_<?php print $add_price->product_quantity_start?>"><?php print formatprice($add_price->price)?><?php print $add_price->ext_price?></span> <span class="per_piece">/ <?php print $this->product->product_add_price_unit?></span>
-		</span>
-	<div style="width:100%; clear:both;"></div>		
-	</div>
-    <?php }?>
-	<div style="width:100%; clear:both;"></div>	
-    </div>
-    <?php }?>
-		<div class="bonus_system"><?php print $this->product->_tmp_product_html_bonus_system;?>
-			<?php if (($product->product_price !=0) && ($product->product_price >5000) && ($product->product_price <300000)) {?>
-	<div title="Выберите способ оплаты «Альфа-кредит Купить Легко» в корзине и заполните заявку. Банк ответит через несколько минут." style="cursor:pointer; width:100%; padding: 0 5px;">
+        <?php
+        }?>
+        <?php
+        if ($product->product_old_price > 0 && $product->product_old_price > $product->product_price){?>
+            <div class="old_prices">
+                <span class="old_priceL">Старая цена:</span><span class="old_price" id="old_price"><?php print formatprice($this->product->product_old_price)?></span>
+            </div>
+        <?php
+        }?>
+        <?php
+        if ($this->product->product_price_default > 0 && $this->config->product_list_show_price_default){?>
+            <div class="default_price"><span id="pricedefault"><?php print formatprice($this->product->product_price_default)?></span></div>
+        <?php
+        }?>
+        <?php
+        if ($product->product_price !=0){?>
+	    <div class="prod_price">
+            <div style="width: 100%;">
+		    <div class="top_block_price">
+                <span class="block_priceL">Ваша цена:</span>
+                <span itemprop="offers" itemscope="" itemtype="https://schema.org/Offer" id="block_price">
+                    <span itemprop="price">
+                        <?php print formatprice($this->product->getPriceCalculate())?>
+                        <?php print $this->product->_tmp_var_price_ext;?>
+                    </span>
+                    <span>
+                        <meta itemprop="priceCurrency" content="RUB">
+                    </span>
+                </span>
+		    </div>
+		    <?php
+            if ($this->product->product_is_add_price){?>
+                <div class="price_prod_qty_list">
+	                <?php
+                    foreach($this->product->product_add_prices as $k=>$add_price){?>
+	                    <div>
+	                        <?=_JSHOP_PRICE_FOR_QTY?>
+                            <span class="qty_from" class="<?= ($add_price->product_quantity_finish==0?'collspan3':'') ?>">
+                                <?= $add_price->product_quantity_finish==0?_JSHOP_FROM:'' ?>
+			                    <?php print $add_price->product_quantity_start?>
+                                <?php print $this->product->product_add_price_unit?>
+                            </span>
+		                    <?php
+                            if ($add_price->product_quantity_finish > 0){?>
+		                        <span class="qty_line"> - </span>
+		                    <?php
+                            } ?>
+		                    <?php
+                            if ($add_price->product_quantity_finish > 0){?>
+		                        <span class="qty_to">
+			                    <?php print $add_price->product_quantity_finish?>
+                                <?php print $this->product->product_add_price_unit?>
+		                    </span>
+		                    <?php
+                            } ?>
+                            <span class="qty_price">
+                                <span id="pricelist_from_<?php print $add_price->product_quantity_start?>">
+                                    <?php print formatprice($add_price->price)?>
+                                    <?php print $add_price->ext_price?>
+                                </span>
+                                <span class="per_piece">/ <?php print $this->product->product_add_price_unit?></span>
+                            </span>
+	                        <div style="width:100%; clear:both;"></div>
+	                    </div>
+                    <?php
+                    }#END FOREACH ?>
+	                <div style="width:100%; clear:both;"></div>
+                </div>
+            <?php
+            }?>
+		<div class="bonus_system">
+            <?php print $this->product->_tmp_product_html_bonus_system;?>
+			<?php
+            if (($product->product_price !=0) && ($product->product_price >5000) && ($product->product_price <300000)) {?>
+	            <div title="Выберите способ оплаты «Альфа-кредит Купить Легко» в корзине и заполните заявку. Банк ответит через несколько минут." style="cursor:pointer; width:100%; padding: 0 5px;">
 	<div style="width:100%; clear:both;"></div>	
     <?php $kredit=(($this->product->product_price) / 19.5)?> 
 	Кредит  в месяц от <span class="block_bonus" style="float: right; font-size: 16px; color: rgb(255, 126, 3);font-weight: 900; padding:0 10px 0 0;"><?php echo(number_format($kredit, 0, '.', ' '));?> 
 	p</span>
 	</div>
-    <?php }?>
+            <?php
+			}?>
 		</div>
 			<div style="margin: 0px; text-align: center; line-height: 40px;">
 				  <div class="prod_qty">
@@ -317,11 +408,20 @@
 		<div style="">
 		<?php print $this->_tmp_product_html_after_click_buttons;?>
 		<input type="submit" class="button_buy" title="В корзину" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
-		<div class="buttons">            
-                <div style="" abbr class="jcetooltip" title="Заполните форму заявки и наши менеджеры свяжутся с вами."><input type="button" class="b1c" value="Нашли дешевле? Снизим цену!" ></div>
-                <?php print $this->_tmp_product_html_buttons;?>
-            </div>
+
+
+
+            <div class="buttons">
+            <?php # Кнопка "Нашли дешевле? Снизим цену!" ?>
+            <?= \Joomla\CMS\Layout\LayoutHelper::render('product.get_discount', ['template' => $template] ); ?>
+            <?php print $this->_tmp_product_html_buttons;?>
+
 		</div>
+
+
+
+
+
         <?php }?>
         <?php }?>			
 		</div> 
@@ -401,7 +501,12 @@
 	<?php if (!($this->product->_label_name == 'Товара нет в наличии') ) {?>
 	<div class="buttons_zakaz">
              <div class='b1c-name' style="display:none;" >уточнения цены на <?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?><?php if ($this->config->show_product_code){?> (<?php echo _JSHOP_EAN?>: <?php print $this->product->getEan();?>)<?php }?></div>	
-             <div style="" abbr class="jcetooltip" title="Заполните форму заявки на запрос цены на <?php if ($this->product->seoname){ ?><?php print $this->product->seoname?><?php } else { ?><?php print $this->product->name?><?php } ?> и наши менеджеры свяжутся с вами."><input onclick="yaCounter23630017.reachGoal('zapros_cenu'); return true;" class="b1c" type="button" style="float: none; color:#ffffff;  border-radius: 0px; margin: 20px 0px 20px 50px; height: 40px; background: #ff7800; font-size: 18px; border: 1px solid rgb(255, 255, 255);" value="Запросить цену"></div>
+             <div style="" abbr class="jcetooltip"
+                  title="Заполните форму заявки на запрос цены на <?= ($this->product->seoname?$this->product->seoname:$this->product->name) ?>   и наши менеджеры свяжутся с вами.">
+                 <input onclick="yaCounter23630017.reachGoal('zapros_cenu'); return true;"
+                        class="b1c" type="button"
+                        style="float: none; color:#ffffff;  border-radius: 0px; margin: 20px 0px 20px 50px; height: 40px; background: #ff7800; font-size: 18px; border: 1px solid rgb(255, 255, 255);" value="Запросить цену">
+             </div>
     </div>
 	<?php }?>
 	</div>	
@@ -595,19 +700,22 @@
 	  </div>
 	   <!-- Блок с ценой для услуг конец -->
 	 <?php }?>
-	 
+
+
+
+
 	 <div class="banner_r">
-  <?php if (trim($this->_tmp_product_html_before_relateded88)) {?>
-		<?php print $this->_tmp_product_html_before_relateded;?>
-		<?php } else{?>
-		<?php 
-		$document   = JFactory::getDocument();
-		$renderer   = $document->loadRenderer('modules');
-        $options    = array('style' => 'xhtml');
-        $position   = 'banner_r';
-        echo $renderer->render($position, $options, null);
-        ?>
-	 <?php }?>
+
+        <?php
+        if (trim($this->_tmp_product_html_before_relateded88)) {
+            print $this->_tmp_product_html_before_relateded;
+        }else{
+            $document   = Factory::getDocument();
+            $renderer   = $document->loadRenderer('modules');
+            $options    = array('style' => 'xhtml');
+            $position   = 'banner_r';
+            echo $renderer->render($position, $options, null);
+        }?>
 	 </div>
 	 <div style="width:100%; clear:both; margin:0;"></div>
 	</div> 
@@ -856,15 +964,29 @@ if ($this->product->product_manufacturer_id == '51' ) : ?>
 </div>
 </dd>
 
-  <script type="text/javascript"> 
-  jQuery(function(){
-jQuery('dl.tabs dt').click(function(){
-jQuery(this)
-.siblings().removeClass('selected').end()
-.next('dd').andSelf().addClass('selected');
-});
-});
-  </script> 
+  <?php # Управлениее владками описания ?>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+      var $ = jQuery
+
+          setTimeout(function (){
+
+
+              $('body' ).on('click' , 'dl.tabs dt' ,function(){
+                  var $nextCotent =  $(this).next('dd');
+                  $(this)
+                      .siblings()
+                      .removeClass('selected')
+                      .end();
+                  $nextCotent.andSelf()
+                      .addClass('selected');
+                  var $stars = $nextCotent.find('input[type=radio].star');
+                  if ( $stars.length ) $stars.rating();
+
+              });
+          },500)
+      });
+  </script>
+
   </dl>
 <div class="button_back" style="z-index:1000000;">
  <?php 

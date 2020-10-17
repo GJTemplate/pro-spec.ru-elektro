@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die(); ?> 
-	
+
 		  <?php
                  if (!($_SERVER['REQUEST_URI']=='/' || $_SERVER['REQUEST_URI']=='/?device=mobile'))
             {?>
@@ -90,7 +90,7 @@ jQuery(document).ready(function() { if (jQuery("#modal-messages").length) modalM
 				acymailing['NO_LIST_SELECTED'] = 'Пожалуйста, выберите рассылки, на которые вы хотите подписаться';
 acymailing['reqFieldsformAcymailing62391'] = Array('html');
 		acymailing['validFieldsformAcymailing62391'] = Array('Пожалуйста, введите значение для поля Получить');
-jQuery(function($) {
+/*jQuery(function($) {
 			 $('.hasTip').each(function() {
 				var title = $(this).attr('title');
 				if (title) {
@@ -101,7 +101,7 @@ jQuery(function($) {
 				}
 			});
 			var JTooltips = new Tips($('.hasTip').get(), {"maxTitleChars": 50,"fixed": false});
-		});
+		});*/
 acymailing['excludeValuesformAcymailing62391'] = Array();
 acymailing['excludeValuesformAcymailing62391']['email'] = 'Введите Ваш email';
 	var mod_ajax_data2;
@@ -114,6 +114,10 @@ if (typeof jfbcJQuery == "undefined") jfbcJQuery = jQuery;
 	</script>
 	
 <?php
+
+
+
+
 $limit = JRequest::getInt('limitstart',0);
 if ($limit > 0){
 $document = & JFactory::getDocument();

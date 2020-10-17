@@ -1,0 +1,47 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 17.10.2020 01:50
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+/*Icon Создать оферту ЕАИСТ */
+.offerta{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU1QzIzMEZDRTIxQTExRTY4MzZEOTdGMUYxODgyMkMxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU1QzIzMEZERTIxQTExRTY4MzZEOTdGMUYxODgyMkMxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTVDMjMwRkFFMjFBMTFFNjgzNkQ5N0YxRjE4ODIyQzEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTVDMjMwRkJFMjFBMTFFNjgzNkQ5N0YxRjE4ODIyQzEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7yuootAAACsklEQVR42nRTTUhUURT+3ptpFJvKbAzFyhxT0he5UIgMJERj1EUrW+jWyFGCJmjRH+2SMIsgm0yDIDWwIF6L8G+kkqTAkaRpFmpiFlppqTmk2czczrlvHKagA/e9c+75ud937zmKEAKxUtep5NJOjQKUkStDIYXsSfp0k952q0r4Y+OV9QKUaCHtGgU6K/MbVS2tAtsS7NI3H3gP/+xTPPSeCZPZSoVcVGhFOrlAbQcstPq6hutEOBwS/xP2PfKeFBTrcVKOPJw/ZDRzcqx4p++LCzrExScQI6THStewU9S24ybnKpSs0X+0uSpoUhVTlFtD9yZMfwuA72BnkhVnHctRX1iEUP/AHCK6eSrZNZUFjTJZH63DvVclMmh2KRBNmFk0dPZxDMcey79qgoIalU535KZW4ONCL16MuTE07sGnxT5k2vZH7gjYsz1P7g1NeDA47pZ6Tmo5P49DJYh2mzWTCnggCK6JWLBemtsg4fMqzbmM6e/9MKkMH1LnHBK7ug6z0H4FWXRS3AYgf9c5pGzWoghStuxDwe7ziDNDxnBsKPyLqmONtjBJ77x3efULxj6Poii7GD3+evT62pGRbCC4pKejVKtGUVYxURjAxNwzbLTYuP4HfoXrNitOLfwEDmQcgjXeht53uqTiPHxHQrj9/ASC1EJHtKMIrMzj9dRLJCUAc8u4wRTuzgUQ4pPsyYXo8ekSejAIpCeWIX1rOX4HDSo9b3W6sIOEHPj6A9RxaFOpJX1kt6wF+YLCUd6yzxU1siAHQvoUAY6lKi3uauEzG7twqQqy9TdNJVoa4J8xigxOnI64DdF2AI9HmhjBAJmuv4bJ2aFYwMNEqjUeaiJxNKtGNvNfWgUCqwRSoJUquNyRYVL+HWdnp6JR0nFSHdwj5F6j/xTZ/cyZYcfG/xFgAIaGZb33K6VhAAAAAElFTkSuQmCC') no-repeat left}
+/*Пригласить на ТЕНДЕР*/
+.offerta1{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABnElEQVQ4jYXTzYsNYBQG8N+9rgxWWGh2QoNhQpmVhaJo1FAsWUgzaTY+Iiua7GZWhs1IZMUfYGgapSRZkBSTrzI1MgmxQJrGx9Vpzq3b25Rn89Z7znPO857zvJV1bQcUWIQTWI+FGZrGS5zH9+b0WkEO4mE8wWiS6liL7XiI6xiYq8BF7McujOfdNXzG6SSuwRhWobe5wBHEW5YVirZgAxbgGF5jBT7gOIaqWIwz2FyQb2IenuNoEd+IU1hSy8oP8A5LsRw96M7kOJ9l1wY+4S5OVlPmaAb24UV2CNKdfHcU/1UovIWOKFDNaQeuYAQ7UlUMtAO3Mb8oEI0q1dIE2IPLqSBwCL8xg86mvIrs/idNE+hLD3zFzlxdYC8m8Sj9IDn1Wl7uxnucRStWpwv/4g3O5frGc3gH0YWnYeWWTLqfXviRyuq54skkNzCBx9iK9lAQPu/Hhca7/oOV+JLe+dYYYlj2Ej4WgyoR653CDQzHRfNfCL+/xdV03z28ylgbtmETBvPfzK5iju8cquJXRreYQeBnFh3Kdc4C/wDsV1w2sxh5sgAAAABJRU5ErkJggg==') no-repeat left}
+/*Запросить КП*/
+.offerta2{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABZUlEQVQ4jYXTP0sWUBQG8J+vtihEIE4tIaTZUH4ErcjBjNwCl0KdGmpqcwoabHaqqAghnKQmxcxPIDXYoEP0BfwHSkNhnDivXO6r9sCByz3nPOe555zbNtA3ocI5TOMhrqMNG3iPOfwqwxtV8k2soRuTOI8uRJV2rOJumdBRnKPqbYxityLeSJtL68eLUsEwRnD/hOQSB/m0q7jXVBD2DGP405LSiiM8wgqWQ8FUvu1xOgMP8jyUPTmq7CkWgqiRzfpU1XmCn5kc+JbPHC5iImci5A9iq3B8zfGNF3e7BVkTP9BXj1ERONTiOQGNrHi5kv8ue3KpNeUYvdgMgtc5gRJvi2aehjuYj1XuSNlBsnNKcI3OHOOtUPAbM3iZ6/o/xN+IbZzFYbOJX7CED7hwBkP8izf4jsW4aO/pvtZ0rmMbr3AxR7eXjb6SK/w8lQbJP9Rj/JzjC6Jo7n7u/3yu+Q18PI7GX1EVTD4DxlQwAAAAAElFTkSuQmCC') no-repeat left}
+/*Перейти к сравнению*/
+.offerta3{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAABi0lEQVQ4jX2Tv0seQRCGn0eDVlrFFAZEEUSUWKSwUUlpmUIrKyHYKBJCIIWJpbUEUtloJ3b5AxKIBixERBGJWPmzUbSIJiJKDAtz+HHfnQPDze2+8+7Mu7OqPGLvgFvgSykkEZR4i7qnbqtNJZhSgrfqfc7HCnA8yRXUCHwGRoFp4A9wBzQDc0AP8AG4zrcwqK6oJ+pv9XXBaSPqpXqoLqsDlS28VPej5KcFyZk/D8yu2p3WaqKQDeBXxB1VSj9YV0SbwE4KMoLO6DORjFelPdgbYDuIWioJJoHDEC8JlRc3E/gFMAwcAWOVBAPAFbAWoL6qdOiPk/eAe2Awu4WuEOZVCHWgLhQI+FXdingoclpr1VrgGFiKk74BZ8BuroJU7SxwEVqdA+vpLbTHYLQBiew0/q8ClOwZUA80AE3ATehQl8pJg5Mf2+QTFeVPlWCO0+anoo0YmoygXb0owL3PADPqkXqt/symLOe96qp6E1P7Ma0nEVOP+8C/+C4CPwqu8QT4Gw/sOzAPXP4Hxppmi4sS6jYAAAAASUVORK5CYII=') no-repeat left}
+/*В список пожеланий*/
+.offerta4{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAYAAAA/mJfHAAABn0lEQVQ4ja3UT4hOYRTH8c+8DSFispkJURZS6MVqmhXZSVEsLC3syKAkJRaibIZhMVK2yvhTKEaSpJSF3mZhYYay0CwmwgaNho7ONXfuzLwhv3q6Pfd5zvc55zy/e/1PtdTr9cC1YAPOYl3OP6AXV7AGJ7ERNbzHRVxm/FujMfgrpdZMbAXOZdB9jKELR9GGTViLF/iIyOBY7rtUFBewBbiHTxnUwOw8YBdO4QG24yW+Yil2ow+fcbWARfrtmckq3MIZPMdpPMIwRkvtHcpD2qmdL2BR/x4cwiIcQQ8GM+gHnlVAhcZxIZ8KWEwGsBxP8SRL+RO9yfG7ZzFW42GW9Deah/nlzF5h3z/abQtWlmHRp83YOWVrcy1Je9wowx5n0/uxrWn4hDpwHXNwvHhZmPYEFuJ2Au9OCZ9QWx68GFvxtgoLdWMW7jQBzs0DOxI0VF5srWw+kN9lfzp+oLRWy9telj2Oi5ukKux7Gjh0DTtKdgkPxs114vV09VdhoTDs4Vy7iYPYm6D1eDcdaCZY6Av2568mvr1wefwpRmYCwU+ZxVbg91IlIQAAAABJRU5ErkJggg==') no-repeat left}
+
+.jshop_price .b1c, .jcetooltip .b1c {
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.jcetooltip {
+    text-align: center;
+    margin-top: 13px;
+}
+#my_opisanie .b1c{
+    cursor: pointer;
+}
+#my_opisanie_fon .extra_fields {
+    padding: 0;
+    line-height: 0;
+    display: none;
+}
+
+
+
+
+
+
+

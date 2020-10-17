@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die();
 
+die(__FILE__ .' '. __LINE__ );
 
 ?>
 <div class="oferta_top">

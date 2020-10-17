@@ -1,0 +1,316 @@
+/***********************************************************************************************************************
+ * ╔═══╗ ╔══╗ ╔═══╗ ╔════╗ ╔═══╗ ╔══╗  ╔╗╔╗╔╗ ╔═══╗ ╔══╗   ╔══╗  ╔═══╗ ╔╗╔╗ ╔═══╗ ╔╗   ╔══╗ ╔═══╗ ╔╗  ╔╗ ╔═══╗ ╔╗ ╔╗ ╔════╗
+ * ║╔══╝ ║╔╗║ ║╔═╗║ ╚═╗╔═╝ ║╔══╝ ║╔═╝  ║║║║║║ ║╔══╝ ║╔╗║   ║╔╗╚╗ ║╔══╝ ║║║║ ║╔══╝ ║║   ║╔╗║ ║╔═╗║ ║║  ║║ ║╔══╝ ║╚═╝║ ╚═╗╔═╝
+ * ║║╔═╗ ║╚╝║ ║╚═╝║   ║║   ║╚══╗ ║╚═╗  ║║║║║║ ║╚══╗ ║╚╝╚╗  ║║╚╗║ ║╚══╗ ║║║║ ║╚══╗ ║║   ║║║║ ║╚═╝║ ║╚╗╔╝║ ║╚══╗ ║╔╗ ║   ║║
+ * ║║╚╗║ ║╔╗║ ║╔╗╔╝   ║║   ║╔══╝ ╚═╗║  ║║║║║║ ║╔══╝ ║╔═╗║  ║║─║║ ║╔══╝ ║╚╝║ ║╔══╝ ║║   ║║║║ ║╔══╝ ║╔╗╔╗║ ║╔══╝ ║║╚╗║   ║║
+ * ║╚═╝║ ║║║║ ║║║║    ║║   ║╚══╗ ╔═╝║  ║╚╝╚╝║ ║╚══╗ ║╚═╝║  ║╚═╝║ ║╚══╗ ╚╗╔╝ ║╚══╗ ║╚═╗ ║╚╝║ ║║    ║║╚╝║║ ║╚══╗ ║║ ║║   ║║
+ * ╚═══╝ ╚╝╚╝ ╚╝╚╝    ╚╝   ╚═══╝ ╚══╝  ╚═╝╚═╝ ╚═══╝ ╚═══╝  ╚═══╝ ╚═══╝  ╚╝  ╚═══╝ ╚══╝ ╚══╝ ╚╝    ╚╝  ╚╝ ╚═══╝ ╚╝ ╚╝   ╚╝
+ *----------------------------------------------------------------------------------------------------------------------
+ * @author Gartes | sad.net79@gmail.com | Skype : agroparknew | Telegram : @gartes
+ * @date 12.10.2020 03:26
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later;
+ **********************************************************************************************************************/
+.mycategoryBlocks {
+	/* display: none; */
+	position: absolute;
+	z-index: 292;
+	background: #fff;
+	box-shadow: 0 0 50px #777;
+	top: 85px;
+	width: 100%;
+	max-width: 1600px;
+	left: 0;
+}
+
+.od.menu {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 650px;
+}
+#top_menu ul {
+    margin: 0;
+    padding: 0;
+}
+#top_menu .od.menu li ul li:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+#top_menu .od.menu li ul li ul li {
+    border-bottom: 0 dashed #ccc;
+    border-right: medium none;
+    float: left;
+    margin: 0 0 5px;
+    padding: 0 3px;
+    width: 100%;
+}
+#top_menu .od.menu li ul li ul li ul {
+    display: none;
+    min-height: 0 !important;
+    padding: 0;
+}
+#top_menu .od.menu li ul li ul li ul li {
+    display: none;
+    height: 0 !important;
+    padding: 0;
+}
+#top_menu .od.menu li a:hover {
+    border-right: 1px solid #fff;
+    color: #dadada;
+    text-decoration: none;
+    outline: medium none;
+}
+#top_menu .od.menu li:hover {
+    background: #fff none repeat scroll 0 0;
+    color: #ffffff;
+    text-decoration: none;
+}
+#top_menu .od.menu li ul {
+        min-width: auto;
+        background-color: #fff;
+        border-bottom: 1px solid #dadada !important;
+        border-left: 1px solid #dadada !important;
+        border-right: 1px solid #dadada !important;
+        display: none;
+        height: auto;
+        left: auto;
+        padding: 15px;
+        position: absolute;
+        top: 0px;
+        max-width: 1220px;
+        z-index: 1250;
+        width: calc(100% - 321px);
+        right: 0;
+        box-sizing: border-box;
+        min-height: 100%;
+}
+#top_menu .od.menu li ul {
+        background-color: #fff;
+        border-bottom: 1px solid #dadada !important;
+        border-left: 1px solid #dadada !important;
+        border-right: 1px solid #dadada !important;
+        /* display: none; */
+        height: auto;
+        left: auto;
+        padding: 15px;
+        position: absolute;
+        top: 0px;
+        max-width: 1220px;
+        z-index: 1250;
+        width: calc(100% - 316px);
+        right: 0;
+        box-sizing: border-box;
+}
+#top_menu .od.menu li:first-child>ul {
+    display: block;
+}
+#top_menu .od.menu li ul li ul {
+    border: medium none !important;
+    display: block !important;
+    margin: 0;
+    min-height: 10px;
+    padding: 0 10px 0 0;
+    position: static;
+    width: 100%;
+}
+#top_menu .od.menu li ul li ul:hover{
+	max-height:100%;
+}
+#top_menu .od.menu li:hover > ul {
+    display: block;
+}
+#top_menu .od.menu a:focus, #top_menu .od.menu a:hover {
+    color: #ffffff;
+}
+#top_menu .od.menu li {
+	cursor: pointer;
+	float: none;
+	margin: 0;
+	padding: 0 0 0 20px;
+	/* width: 14.285%; */
+	border-bottom: 1px #dadada dashed;
+}
+#top_menu .od.menu li ul li {
+    display: block;
+    float: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#top_menu .od.menu li ul li a {
+    /* border: medium none; */
+    /* color: #000000; */
+    /* display: block; */
+    /* font-family: tahoma; */
+    /* font-size: 12px; */
+    /* font-weight: bold; */
+    /* height: auto; */
+    /* margin: 0; */
+    /* padding: 3px; */
+    /* text-align: left; */
+}
+#top_menu .od.menu li ul li a:hover {
+    color: #0057a4;
+}
+#top_menu .od.menu li ul li ul li *:hover {
+    /* color: red; */
+    /* text-decoration: underline; */
+}
+#top_menu .od.menu li ul li ul li a {
+    color: #3f454b;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-transform: none;
+}
+#top_menu .od.menu li ul li {
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    width: 24.8%;
+}
+#top_menu .od.menu li ul li a {
+    border: medium none;
+    color: #5e7381;
+    display: block;
+    font-family: tahoma;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    margin: 0;
+    padding: 3px;
+    text-align: left;
+}
+#top_menu .od.menu li ul li a:hover {
+    color: #0057a4;
+}
+#top_menu .od.menu li ul li ul li *:hover {
+    color: #004ed6;
+    text-decoration: none;
+}
+#top_menu .od.menu li ul li ul li a {
+    color: #333333;
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-transform: none;
+    line-height: 16px;
+}
+#top_menu .od.menu li ul li {
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    width: 24.8%;
+	border: none;
+}
+#top_menu .od.menu li ul li:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+#top_menu .od.menu li ul li ul li {
+    border-bottom: 0 dashed #ccc;
+    border-right: medium none;
+    float: left;
+    margin: 0 0 10px;
+    padding: 0 3px;
+    width: 100%;
+}
+#top_menu .od.menu li ul li ul li ul {
+    display: none;
+    min-height: 0 !important;
+    padding: 0;
+}
+#top_menu .od.menu li ul li ul li ul li {
+    display: none;
+    height: 0 !important;
+    padding: 0;
+}
+#top_menu .od.menu li a:hover {
+    /* border-right: 1px solid #fff; */
+    /* color: #dadada; */
+    /* text-decoration: none; */
+}
+#top_menu .od.menu li:hover {
+    /* background: #fff none repeat scroll 0 0; */
+    /* color: #ffffff; */
+    /* text-decoration: none; */
+}
+.mycategoryBlocks > .od.menu > li > a > span {
+	font-weight: 600;
+	font-size: 14px;
+}
+#top_menu .od.menu li span {
+    display: table-cell;
+    vertical-align: middle;
+	text-align: start;
+    /*color:#0053b9;
+	font-size: 14px;*/
+	transition: 0.5s;
+    cursor: pointer;
+	transition: 0.5s;
+	text-transform: initial;
+}
+
+#top_menu .od.menu li a {
+    border-right: 0px!important;
+    display: table;
+    font-size: 11px;
+    height: 40px;
+    padding: 5px;
+    max-width: 316px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #fff;
+    width: 100%;
+    text-decoration: none;
+    color: #000000;
+}
+#top_menu .od.menu li a:hover span{color:#5498ed;transition: 0.5s;}
+.mycategoryBlocks .myoverlayClose {
+    top: 15px;
+    right: 15px;
+    left: auto;
+    width: 20px;
+    height: 20px;
+}
+.myoverlayClose {
+    display: block;
+    width: 25px;
+    transition: 0.5s;
+    height: 25px;
+    cursor: pointer;
+    background: 0 0;
+    text-decoration: none;
+    left: 30%;
+    position: absolute;
+    top: 75px;
+    cursor: pointer;
+    z-index: 6005;
+}
+.myoverlayClose::after, .myoverlayClose::before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 2px;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    background: #fff;
+    transform: rotate(45deg);
+    transform-origin: center center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.myoverlayClose::after {
+    transform: rotate(-45deg);
+}
+.mycategoryBlocks .myoverlayClose::after, .mycategoryBlocks .myoverlayClose::before {
+    background: #353232;
+    width: 25px;
+}
