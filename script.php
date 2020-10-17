@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
  */
 class elektroInstallerScript
 {
-    protected static $RemoveFiles = [
+    public static $RemoveFiles = [
         '/language/en-GB/en-GB.tpl_elektro.ini',
         '/language/en-GB/en-GB.tpl_elektro.sys.ini'
     ];
